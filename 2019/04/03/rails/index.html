@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="rails,ruby,">
 
 
 
@@ -88,20 +88,21 @@
 
 
 
-<meta name="description" content="Rails学习总结Rails 应用架构   文件/文件夹 作用     app/ 包含应用的controllers、models、views、helpers、mailers、channels、jobs、静态资源文件。   bin/ 包含用于启动应用的 rails 脚本，以及用于安装、更新、部署或运行应用的其他脚本。   config/ 配置应用的路由、数据库等。详情请参阅配置 Rails 应用。">
+<meta name="description" content="Rails 应用架构   文件/文件夹 作用     app/ 包含应用的controllers、models、views、helpers、mailers、channels、jobs、静态资源文件。   bin/ 包含用于启动应用的 rails 脚本，以及用于安装、更新、部署或运行应用的其他脚本。   config/ 配置应用的路由、数据库等。详情请参阅配置 Rails 应用。   config.">
+<meta name="keywords" content="rails,ruby">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Zacker&#39;s blog">
+<meta property="og:title" content="Rails学习笔记">
 <meta property="og:url" content="https://zackertypical.github.io/2019/04/03/rails/index.html">
 <meta property="og:site_name" content="Zacker&#39;s blog">
-<meta property="og:description" content="Rails学习总结Rails 应用架构   文件/文件夹 作用     app/ 包含应用的controllers、models、views、helpers、mailers、channels、jobs、静态资源文件。   bin/ 包含用于启动应用的 rails 脚本，以及用于安装、更新、部署或运行应用的其他脚本。   config/ 配置应用的路由、数据库等。详情请参阅配置 Rails 应用。">
+<meta property="og:description" content="Rails 应用架构   文件/文件夹 作用     app/ 包含应用的controllers、models、views、helpers、mailers、channels、jobs、静态资源文件。   bin/ 包含用于启动应用的 rails 脚本，以及用于安装、更新、部署或运行应用的其他脚本。   config/ 配置应用的路由、数据库等。详情请参阅配置 Rails 应用。   config.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1554527302909.png">
 <meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1554526365255.png">
 <meta property="og:image" content="https://ruby-china.github.io/rails-guides/images/belongs_to.png">
-<meta property="og:updated_time" content="2019-04-13T15:50:41.617Z">
+<meta property="og:updated_time" content="2019-04-23T18:59:13.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zacker&#39;s blog">
-<meta name="twitter:description" content="Rails学习总结Rails 应用架构   文件/文件夹 作用     app/ 包含应用的controllers、models、views、helpers、mailers、channels、jobs、静态资源文件。   bin/ 包含用于启动应用的 rails 脚本，以及用于安装、更新、部署或运行应用的其他脚本。   config/ 配置应用的路由、数据库等。详情请参阅配置 Rails 应用。">
+<meta name="twitter:title" content="Rails学习笔记">
+<meta name="twitter:description" content="Rails 应用架构   文件/文件夹 作用     app/ 包含应用的controllers、models、views、helpers、mailers、channels、jobs、静态资源文件。   bin/ 包含用于启动应用的 rails 脚本，以及用于安装、更新、部署或运行应用的其他脚本。   config/ 配置应用的路由、数据库等。详情请参阅配置 Rails 应用。   config.">
 <meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1554527302909.png">
 
 
@@ -138,7 +139,7 @@
 
 
 
-  <title> | Zacker's blog</title>
+  <title>Rails学习笔记 | Zacker's blog</title>
   
 
 
@@ -344,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Rails学习笔记</h1>
         
 
         <div class="post-meta">
@@ -367,8 +368,40 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后台开发/" itemprop="url" rel="index">
+                    <span itemprop="name">后台开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/03/rails/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/03/rails/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -394,7 +427,7 @@
       
 
       
-        <h1 id="Rails学习总结"><a href="#Rails学习总结" class="headerlink" title="Rails学习总结"></a>Rails学习总结</h1><h2 id="Rails-应用架构"><a href="#Rails-应用架构" class="headerlink" title="Rails 应用架构"></a>Rails 应用架构</h2><table>
+        <h2 id="Rails-应用架构"><a href="#Rails-应用架构" class="headerlink" title="Rails 应用架构"></a>Rails 应用架构</h2><table>
 <thead>
 <tr>
 <th style="text-align:left">文件/文件夹</th>
@@ -718,6 +751,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/rails/" rel="tag"><i class="fa fa-tag"></i> rails</a>
+          
+            <a href="/tags/ruby/" rel="tag"><i class="fa fa-tag"></i> ruby</a>
+          
+        </div>
+      
 
       
       
@@ -727,7 +768,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/03/git远程操作/" rel="next" title="git操作">
+              <a href="/2019/04/03/git操作/" rel="next" title="git操作">
                 <i class="fa fa-chevron-left"></i> git操作
               </a>
             
@@ -737,8 +778,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/04/virtualbox+vagrant/" rel="prev" title="Virtualbox">
-                Virtualbox <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/04/virtualbox+vagrant/" rel="prev" title="Virtualbox+vagrant配置ubuntu开发环境">
+                Virtualbox+vagrant配置ubuntu开发环境 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -825,7 +866,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -836,7 +877,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -847,7 +888,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -897,7 +938,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Rails学习总结"><span class="nav-number">1.</span> <span class="nav-text">Rails学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Rails-应用架构"><span class="nav-number">1.1.</span> <span class="nav-text">Rails 应用架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类-class-、模块-module-、块、方法"><span class="nav-number">1.2.</span> <span class="nav-text">类(class)、模块(module)、块、方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rails常见命令行命令"><span class="nav-number">1.3.</span> <span class="nav-text">Rails常见命令行命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rails-的generate生成"><span class="nav-number">1.3.1.</span> <span class="nav-text">Rails 的generate生成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#controller"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">controller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#model"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销命令"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">撤销命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制器controller"><span class="nav-number">1.4.</span> <span class="nav-text">控制器controller</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Rails-控制器的命名约定"><span class="nav-number">1.4.1.</span> <span class="nav-text">1、Rails 控制器的命名约定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、方法和动作"><span class="nav-number">1.4.2.</span> <span class="nav-text">2、方法和动作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、参数！"><span class="nav-number">1.4.3.</span> <span class="nav-text">3、参数！</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、散列和组参数"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">1、散列和组参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、JSON参数"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">2、JSON参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、路由参数"><span class="nav-number">1.4.3.3.</span> <span class="nav-text">3、路由参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、default-url-options"><span class="nav-number">1.4.3.4.</span> <span class="nav-text">4、default_url_options</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、健壮参数"><span class="nav-number">1.4.3.5.</span> <span class="nav-text">5、健壮参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、允许使用的标量值"><span class="nav-number">1.4.3.5.1.</span> <span class="nav-text">1、允许使用的标量值</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.5.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、命名约定"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">1、命名约定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联关系"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">关联关系</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#视图和渲染"><span class="nav-number">1.6.</span> <span class="nav-text">视图和渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建响应"><span class="nav-number">1.6.1.</span> <span class="nav-text">创建响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、默认渲染行为"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">1、默认渲染行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、render方法"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">2、render方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、渲染action的view"><span class="nav-number">1.6.1.2.1.</span> <span class="nav-text">1、渲染action的view</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、渲染其他controller中某个action的view"><span class="nav-number">1.6.1.2.2.</span> <span class="nav-text">2、渲染其他controller中某个action的view</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、渲染任意文件"><span class="nav-number">1.6.1.2.3.</span> <span class="nav-text">3、渲染任意文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、渲染文本"><span class="nav-number">1.6.1.2.4.</span> <span class="nav-text">4、渲染文本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、渲染html"><span class="nav-number">1.6.1.2.5.</span> <span class="nav-text">5、渲染html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、渲染json"><span class="nav-number">1.6.1.2.6.</span> <span class="nav-text">6、渲染json</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、渲染xml"><span class="nav-number">1.6.1.2.7.</span> <span class="nav-text">7、渲染xml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、-redirect-to-方法"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">3、 redirect_to 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、head构建只有首部的响应"><span class="nav-number">1.6.1.4.</span> <span class="nav-text">4、head构建只有首部的响应</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session会话"><span class="nav-number">1.7.</span> <span class="nav-text">Session会话</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Rails-应用架构"><span class="nav-number">1.</span> <span class="nav-text">Rails 应用架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类-class-、模块-module-、块、方法"><span class="nav-number">2.</span> <span class="nav-text">类(class)、模块(module)、块、方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类"><span class="nav-number">2.0.1.</span> <span class="nav-text">类</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Rails常见命令行命令"><span class="nav-number">3.</span> <span class="nav-text">Rails常见命令行命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rails-的generate生成"><span class="nav-number">3.1.</span> <span class="nav-text">Rails 的generate生成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#controller"><span class="nav-number">3.1.1.</span> <span class="nav-text">controller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#model"><span class="nav-number">3.1.2.</span> <span class="nav-text">model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销命令"><span class="nav-number">3.1.3.</span> <span class="nav-text">撤销命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制器controller"><span class="nav-number">4.</span> <span class="nav-text">控制器controller</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Rails-控制器的命名约定"><span class="nav-number">4.1.</span> <span class="nav-text">1、Rails 控制器的命名约定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、方法和动作"><span class="nav-number">4.2.</span> <span class="nav-text">2、方法和动作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、参数！"><span class="nav-number">4.3.</span> <span class="nav-text">3、参数！</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、散列和组参数"><span class="nav-number">4.3.1.</span> <span class="nav-text">1、散列和组参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、JSON参数"><span class="nav-number">4.3.2.</span> <span class="nav-text">2、JSON参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、路由参数"><span class="nav-number">4.3.3.</span> <span class="nav-text">3、路由参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、default-url-options"><span class="nav-number">4.3.4.</span> <span class="nav-text">4、default_url_options</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、健壮参数"><span class="nav-number">4.3.5.</span> <span class="nav-text">5、健壮参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、允许使用的标量值"><span class="nav-number">4.3.5.1.</span> <span class="nav-text">1、允许使用的标量值</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">5.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、命名约定"><span class="nav-number">5.0.1.</span> <span class="nav-text">1、命名约定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联关系"><span class="nav-number">5.0.2.</span> <span class="nav-text">关联关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图和渲染"><span class="nav-number">6.</span> <span class="nav-text">视图和渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建响应"><span class="nav-number">6.1.</span> <span class="nav-text">创建响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、默认渲染行为"><span class="nav-number">6.1.1.</span> <span class="nav-text">1、默认渲染行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、render方法"><span class="nav-number">6.1.2.</span> <span class="nav-text">2、render方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、渲染action的view"><span class="nav-number">6.1.2.1.</span> <span class="nav-text">1、渲染action的view</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、渲染其他controller中某个action的view"><span class="nav-number">6.1.2.2.</span> <span class="nav-text">2、渲染其他controller中某个action的view</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、渲染任意文件"><span class="nav-number">6.1.2.3.</span> <span class="nav-text">3、渲染任意文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、渲染文本"><span class="nav-number">6.1.2.4.</span> <span class="nav-text">4、渲染文本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、渲染html"><span class="nav-number">6.1.2.5.</span> <span class="nav-text">5、渲染html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、渲染json"><span class="nav-number">6.1.2.6.</span> <span class="nav-text">6、渲染json</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、渲染xml"><span class="nav-number">6.1.2.7.</span> <span class="nav-text">7、渲染xml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、-redirect-to-方法"><span class="nav-number">6.1.3.</span> <span class="nav-text">3、 redirect_to 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、head构建只有首部的响应"><span class="nav-number">6.1.4.</span> <span class="nav-text">4、head构建只有首部的响应</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session会话"><span class="nav-number">7.</span> <span class="nav-text">Session会话</span></a></li></div>
             
 
           </div>
@@ -1094,6 +1135,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'TEdkO86XrEcKXGB3MDLP1p3L-gzGzoHsz',
+        appKey: 'sqk7YxvqMVYk3jt3fTrHj4lt',
+        placeholder: '快留言吧！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="ruby,">
 
 
 
@@ -89,15 +89,16 @@
 
 
 <meta name="description" content="hash哈希（Hash）本质上就是数组，只不过它的索引不局限于只能使用数字。哈希的索引（或者叫“键”）几乎可以使用任何对象。例如，可以使用字符串做键 函数参数常见参数有：必选参数，可选参数，带默认值的参数以及命名参数。 哈希作为参数12345def calculate(attributes = &amp;#123;&amp;#125;)	@name = attributes[:name]	@email = att">
+<meta name="keywords" content="ruby">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Zacker&#39;s blog">
+<meta property="og:title" content="ruby语法">
 <meta property="og:url" content="https://zackertypical.github.io/2019/04/10/ruby语法问题/index.html">
 <meta property="og:site_name" content="Zacker&#39;s blog">
 <meta property="og:description" content="hash哈希（Hash）本质上就是数组，只不过它的索引不局限于只能使用数字。哈希的索引（或者叫“键”）几乎可以使用任何对象。例如，可以使用字符串做键 函数参数常见参数有：必选参数，可选参数，带默认值的参数以及命名参数。 哈希作为参数12345def calculate(attributes = &amp;#123;&amp;#125;)	@name = attributes[:name]	@email = att">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-11T00:28:05.126Z">
+<meta property="og:updated_time" content="2019-04-23T19:00:43.513Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zacker&#39;s blog">
+<meta name="twitter:title" content="ruby语法">
 <meta name="twitter:description" content="hash哈希（Hash）本质上就是数组，只不过它的索引不局限于只能使用数字。哈希的索引（或者叫“键”）几乎可以使用任何对象。例如，可以使用字符串做键 函数参数常见参数有：必选参数，可选参数，带默认值的参数以及命名参数。 哈希作为参数12345def calculate(attributes = &amp;#123;&amp;#125;)	@name = attributes[:name]	@email = att">
 
 
@@ -134,7 +135,7 @@
 
 
 
-  <title> | Zacker's blog</title>
+  <title>ruby语法 | Zacker's blog</title>
   
 
 
@@ -340,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">ruby语法</h1>
         
 
         <div class="post-meta">
@@ -363,8 +364,40 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ruby/" itemprop="url" rel="index">
+                    <span itemprop="name">ruby</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/10/ruby语法问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/10/ruby语法问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -414,6 +447,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ruby/" rel="tag"><i class="fa fa-tag"></i> ruby</a>
+          
+        </div>
+      
 
       
       
@@ -432,10 +471,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/11/Rails Active Record/" rel="prev" title="接口">
-                接口 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -521,7 +556,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -532,7 +567,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -543,7 +578,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -790,6 +825,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'TEdkO86XrEcKXGB3MDLP1p3L-gzGzoHsz',
+        appKey: 'sqk7YxvqMVYk3jt3fTrHj4lt',
+        placeholder: '快留言吧！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
