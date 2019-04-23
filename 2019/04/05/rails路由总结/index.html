@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="URL地址连接到代码请求： 1GET /patients/17 会查询routes，找到匹配的controller的方法，如果匹配以下路由： 1get &apos;/patients/:id&apos;, to: &apos;patients#show&apos; 该请求会被分派给 patients 的controller的 show 方法，同时把 { id: &amp;#39;17&amp;#39; } 传入 params。 配置路由的路径：conf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zacker&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/2019/04/05/rails路由总结/index.html">
+<meta property="og:site_name" content="Zacker&#39;s blog">
+<meta property="og:description" content="URL地址连接到代码请求： 1GET /patients/17 会查询routes，找到匹配的controller的方法，如果匹配以下路由： 1get &apos;/patients/:id&apos;, to: &apos;patients#show&apos; 该请求会被分派给 patients 的controller的 show 方法，同时把 { id: &amp;#39;17&amp;#39; } 传入 params。 配置路由的路径：conf">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-11T01:24:07.604Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Zacker&#39;s blog">
+<meta name="twitter:description" content="URL地址连接到代码请求： 1GET /patients/17 会查询routes，找到匹配的controller的方法，如果匹配以下路由： 1get &apos;/patients/:id&apos;, to: &apos;patients#show&apos; 该请求会被分派给 patients 的controller的 show 方法，同时把 { id: &amp;#39;17&amp;#39; } 传入 params。 配置路由的路径：conf">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/05/rails路由总结/">
+
+
+
+
+
+  <title> | Zacker's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zacker's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/rails路由总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zacker zhuang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zacker's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-05T18:31:58+08:00">
+                2019-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="URL地址连接到代码"><a href="#URL地址连接到代码" class="headerlink" title="URL地址连接到代码"></a>URL地址连接到代码</h4><p>请求：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /patients/17</span><br></pre></td></tr></table></figure>
+<p>会查询routes，找到匹配的controller的方法，如果匹配以下路由：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get <span class="string">'/patients/:id'</span>, <span class="symbol">to:</span> <span class="string">'patients#show'</span></span><br></pre></td></tr></table></figure>
+<p>该请求会被分派给 <code>patients</code> 的controller的 <code>show</code> 方法，同时把 <code>{ id: &#39;17&#39; }</code> 传入 <code>params</code>。</p>
+<p>配置路由的路径：config/routes.rb</p>
+<p>跟路由：root</p>
+<h3 id="resource资源路由：rails默认风格"><a href="#resource资源路由：rails默认风格" class="headerlink" title="resource资源路由：rails默认风格"></a>resource资源路由：rails默认风格</h3><p>资源路由（resource routing）允许我们为resource的controller快速声明所有常见路由。</p>
+<p>只需一行代码即可完成资源路由的声明，包含方法<code>index</code>、<code>show</code>、<code>new</code>、<code>edit</code>、<code>create</code>、<code>update</code> 和 <code>destroy</code> 。</p>
+<h4 id="1、网络资源"><a href="#1、网络资源" class="headerlink" title="1、网络资源"></a>1、网络资源</h4><p>浏览器使用特定的 HTTP 方法向 Rails 应用请求页面，例如 <code>GET</code>、<code>POST</code>、<code>PATCH</code>、<code>PUT</code> 和 <code>DELETE</code>。每个 HTTP 方法对应对资源的一种操作。资源路由会把<strong>多个相关请求</strong>映射到<strong>单个controller的不同方法</strong>上。</p>
+<p>当 Rails 应用收到下面的请求：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE /photos/<span class="number">17</span></span><br></pre></td></tr></table></figure>
+<p>会查询路由，并把请求映射到控制器动作上。如果第一个匹配的路由是：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resources <span class="symbol">:photos</span></span><br></pre></td></tr></table></figure>
+<p>Rails 会把请求分派给 <code>photos</code> 控制器的 <code>destroy</code> 动作，并把 <code>{ id: &#39;17&#39; }</code> 传入 <code>params</code>。</p>
+<h4 id="2、CRUD、HTTP-方法和控制器动作"><a href="#2、CRUD、HTTP-方法和控制器动作" class="headerlink" title="2、CRUD、HTTP 方法和控制器动作"></a>2、CRUD、HTTP 方法和控制器动作</h4><p>资源路由把 HTTP 方法和 URL 地址映射到控制器动作上。按照约定，每个控制器动作也会映射到对应的<strong>数据库 CRUD 操作</strong>上。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resources <span class="symbol">:photos</span></span><br></pre></td></tr></table></figure>
+<p>会在应用中创建 7 个不同的路由，这些路由都会映射到 <code>Photos</code> 控制器上。</p>
+<p>因为路由使用 HTTP 方法和 URL 地址来匹配请求，所以 4 个 URL 地址会映射到 7 个不同的控制器动作上。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">HTTP 方法</th>
+<th style="text-align:left">路径</th>
+<th style="text-align:left">控制器#动作</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left"><code>/photos</code></td>
+<td style="text-align:left"><code>photos#index</code></td>
+<td style="text-align:left">显示所有照片的列表</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left"><code>/photos/new</code></td>
+<td style="text-align:left"><code>photos#new</code></td>
+<td style="text-align:left">返回用于新建照片的 HTML 表单</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>POST</code></td>
+<td style="text-align:left"><code>/photos</code></td>
+<td style="text-align:left"><code>photos#create</code></td>
+<td style="text-align:left">新建照片</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left"><code>/photos/:id</code></td>
+<td style="text-align:left"><code>photos#show</code></td>
+<td style="text-align:left">显示指定照片</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left"><code>/photos/:id/edit</code></td>
+<td style="text-align:left"><code>photos#edit</code></td>
+<td style="text-align:left">返回用于修改照片的 HTML 表单</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PATCH</code>/<code>PUT</code></td>
+<td style="text-align:left"><code>/photos/:id</code></td>
+<td style="text-align:left"><code>photos#update</code></td>
+<td style="text-align:left">更新指定照片</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DELETE</code></td>
+<td style="text-align:left"><code>/photos/:id</code></td>
+<td style="text-align:left"><code>photos#destroy</code></td>
+<td style="text-align:left">删除指定照片</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3、-path和-url方法：用于生成PATH和-URL-地址"><a href="#3、-path和-url方法：用于生成PATH和-URL-地址" class="headerlink" title="3、_path和_url方法：用于生成PATH和 URL 地址"></a>3、_path和_url方法：用于生成PATH和 URL 地址</h4><p>在创建资源路由时，会同时创建多个可以  <strong><em>在控制器中使用的</em></strong>  辅助方法。例如，在创建 <code>resources :photos</code> 路由时，会同时创建下面的辅助方法：</p>
+<ul>
+<li><code>photos_path</code> 辅助方法，返回值为 <code>/photos</code></li>
+<li><code>new_photo_path</code> 辅助方法，返回值为 <code>/photos/new</code></li>
+<li><code>edit_photo_path(:id)</code> 辅助方法，返回值为 <code>/photos/:id/edit</code>（例如，<code>edit_photo_path(10)</code> 的返回值为 <code>/photos/10/edit</code>）</li>
+<li><code>photo_path(:id)</code> 辅助方法，返回值为 <code>/photos/:id</code>（例如，<code>photo_path(10)</code> 的返回值为 <code>/photos/10</code>）</li>
+</ul>
+<p>这些辅助方法都有对应的 <code>_url</code> 形式（例如 <code>photos_url</code>）。</p>
+<p>path方法返回值是相对<strong>路径</strong>。</p>
+<p>url方法返回值是<strong>路径加上由当前的主机名、端口和路径</strong>前缀组成的前缀。</p>
+<h4 id="4、单数资源"><a href="#4、单数资源" class="headerlink" title="4、单数资源"></a>4、单数资源</h4><p>不使用ID就能查询到资源</p>
+<h4 id="创建限制"><a href="#创建限制" class="headerlink" title="创建限制"></a>创建限制</h4><p>默认情况下，Rails 会为每个 REST 式路由创建 7 个默认动作（<code>index</code>、<code>show</code>、<code>new</code>、<code>create</code>、<code>edit</code>、<code>update</code> 和 <code>destroy</code>）。我们可以使用 <code>:only</code> 和 <code>:except</code> 选项来微调此行为。<code>:only</code> 选项用于指定想要生成的路由：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">resources <span class="symbol">:photos</span>, <span class="symbol">only:</span> [<span class="symbol">:index</span>, <span class="symbol">:show</span>]</span><br><span class="line"><span class="comment">#/photos 路径上的 GET 请求会成功，而 POST 请求会失败，因为后者会被映射到 create 动作上。</span></span><br><span class="line">resources <span class="symbol">:photos</span>, <span class="symbol">except:</span> <span class="symbol">:destroy</span></span><br><span class="line"><span class="comment">#此时，Rails 会创建除 destroy 之外的所有路由，因此 /photos/:id 路径上的 DELETE 请求会失败。</span></span><br></pre></td></tr></table></figure>
+<h3 id="非资源型路由"><a href="#非资源型路由" class="headerlink" title="非资源型路由"></a>非资源型路由</h3><h4 id="1、绑定参数"><a href="#1、绑定参数" class="headerlink" title="1、绑定参数"></a>1、绑定参数</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">get <span class="string">'photos(/:id)'</span>, <span class="symbol">to:</span> <span class="symbol">:display</span></span><br><span class="line"><span class="comment">#id在括号中，是可选参数</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、动态片段"><a href="#2、动态片段" class="headerlink" title="2、动态片段"></a>2、动态片段</h4><p>带冒号的片段，会传入params，在控制器中使用</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get <span class="string">'photos/:id/:user_id'</span>, <span class="symbol">to:</span> <span class="string">'photos#show'</span></span><br></pre></td></tr></table></figure>
+<p><code>/photos/1/2</code> 路径会被映射到 <code>Photos</code> 控制器的 <code>show</code> 动作上。此时，<code>params[:id]</code> 的值是 <code>&quot;1&quot;</code>，<code>params[:user_id]</code> 的值是 <code>&quot;2&quot;</code>。</p>
+<h4 id="3、静态片段"><a href="#3、静态片段" class="headerlink" title="3、静态片段"></a>3、静态片段</h4><h4 id="4、查询字符串"><a href="#4、查询字符串" class="headerlink" title="4、查询字符串"></a>4、查询字符串</h4><p><code>params</code> 也包含了查询字符串中的所有参数。例如，对于下面的路由：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`get `</span><span class="string">`'photos/:id'`</span><span class="string">`, to: `</span><span class="string">`'photos#show'`</span></span><br></pre></td></tr></table></figure>
+<p><code>/photos/1?user_id=2</code> 路径会被映射到 <code>Photos</code> 控制器的 <code>show</code> 动作上，此时，<code>params</code> 的值是 <code>{ controller: &#39;photos&#39;, action: &#39;show&#39;, id: &#39;1&#39;, user_id: &#39;2&#39; }</code>。</p>
+<h4 id="5、路由命名"><a href="#5、路由命名" class="headerlink" title="5、路由命名"></a>5、路由命名</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get <span class="string">'exit'</span>, <span class="symbol">to:</span> <span class="string">'sessions#destroy'</span>, <span class="symbol">as:</span> <span class="symbol">:logout</span></span><br></pre></td></tr></table></figure>
+<p>这个路由声明会创建 <code>logout_path</code> 和 <code>logout_url</code> 具名辅助方法。其中，<code>logout_path</code> 辅助方法的返回值是 <code>/exit</code>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/04/virtualbox+vagrant/" rel="next" title="Virtualbox">
+                <i class="fa fa-chevron-left"></i> Virtualbox
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/07/pycharm远程同步服务器/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zacker zhuang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#URL地址连接到代码"><span class="nav-number">1.</span> <span class="nav-text">URL地址连接到代码</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#resource资源路由：rails默认风格"><span class="nav-number"></span> <span class="nav-text">resource资源路由：rails默认风格</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、网络资源"><span class="nav-number">1.</span> <span class="nav-text">1、网络资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、CRUD、HTTP-方法和控制器动作"><span class="nav-number">2.</span> <span class="nav-text">2、CRUD、HTTP 方法和控制器动作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、-path和-url方法：用于生成PATH和-URL-地址"><span class="nav-number">3.</span> <span class="nav-text">3、_path和_url方法：用于生成PATH和 URL 地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、单数资源"><span class="nav-number">4.</span> <span class="nav-text">4、单数资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建限制"><span class="nav-number">5.</span> <span class="nav-text">创建限制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非资源型路由"><span class="nav-number"></span> <span class="nav-text">非资源型路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、绑定参数"><span class="nav-number">1.</span> <span class="nav-text">1、绑定参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、动态片段"><span class="nav-number">2.</span> <span class="nav-text">2、动态片段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、静态片段"><span class="nav-number">3.</span> <span class="nav-text">3、静态片段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、查询字符串"><span class="nav-number">4.</span> <span class="nav-text">4、查询字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、路由命名"><span class="nav-number">5.</span> <span class="nav-text">5、路由命名</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zacker zhuang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

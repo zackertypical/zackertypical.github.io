@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Rails学习总结Rails 应用架构   文件/文件夹 作用     app/ 包含应用的controllers、models、views、helpers、mailers、channels、jobs、静态资源文件。   bin/ 包含用于启动应用的 rails 脚本，以及用于安装、更新、部署或运行应用的其他脚本。   config/ 配置应用的路由、数据库等。详情请参阅配置 Rails 应用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zacker&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/2019/04/03/rails/index.html">
+<meta property="og:site_name" content="Zacker&#39;s blog">
+<meta property="og:description" content="Rails学习总结Rails 应用架构   文件/文件夹 作用     app/ 包含应用的controllers、models、views、helpers、mailers、channels、jobs、静态资源文件。   bin/ 包含用于启动应用的 rails 脚本，以及用于安装、更新、部署或运行应用的其他脚本。   config/ 配置应用的路由、数据库等。详情请参阅配置 Rails 应用。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1554527302909.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1554526365255.png">
+<meta property="og:image" content="https://ruby-china.github.io/rails-guides/images/belongs_to.png">
+<meta property="og:updated_time" content="2019-04-13T15:50:41.617Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Zacker&#39;s blog">
+<meta name="twitter:description" content="Rails学习总结Rails 应用架构   文件/文件夹 作用     app/ 包含应用的controllers、models、views、helpers、mailers、channels、jobs、静态资源文件。   bin/ 包含用于启动应用的 rails 脚本，以及用于安装、更新、部署或运行应用的其他脚本。   config/ 配置应用的路由、数据库等。详情请参阅配置 Rails 应用。">
+<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1554527302909.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/03/rails/">
+
+
+
+
+
+  <title> | Zacker's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zacker's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/rails/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zacker zhuang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zacker's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-03T17:33:28+08:00">
+                2019-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Rails学习总结"><a href="#Rails学习总结" class="headerlink" title="Rails学习总结"></a>Rails学习总结</h1><h2 id="Rails-应用架构"><a href="#Rails-应用架构" class="headerlink" title="Rails 应用架构"></a>Rails 应用架构</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">文件/文件夹</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>app/</code></td>
+<td style="text-align:left">包含应用的controllers、models、views、helpers、mailers、channels、jobs、静态资源文件。<br><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1554527302909.png" alt="1554527302909"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>bin/</code></td>
+<td style="text-align:left">包含用于启动应用的 rails 脚本，以及用于安装、更新、部署或运行应用的其他脚本。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>config/</code></td>
+<td style="text-align:left">配置应用的路由、数据库等。详情请参阅<a href="https://ruby-china.github.io/rails-guides/configuring.html" target="_blank" rel="noopener">配置 Rails 应用</a>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>config.ru</code></td>
+<td style="text-align:left">基于 Rack 的服务器所需的 Rack 配置，用于启动应用。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>db/</code></td>
+<td style="text-align:left">包含当前数据库的模式，以及数据库迁移文件。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Gemfile</code>, <code>Gemfile.lock</code></td>
+<td style="text-align:left">这两个文件用于指定 Rails 应用所需的 gem 依赖。Bundler gem 需要用到这两个文件。关于 Bundler 的更多介绍，请访问 <a href="http://bundler.io/" target="_blank" rel="noopener">Bundler 官网</a>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>lib/</code></td>
+<td style="text-align:left">应用的扩展模块。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>log/</code></td>
+<td style="text-align:left">应用日志文件。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>public/</code></td>
+<td style="text-align:left">仅有的可以直接从外部访问的文件夹，包含静态文件和编译后的静态资源文件。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Rakefile</code></td>
+<td style="text-align:left">定位并加载可在命令行中执行的任务。这些任务在 Rails 的各个组件中定义。如果要添加自定义任务，请不要修改 Rakefile，直接把自定义任务保存在 <code>lib/tasks</code> 文件夹中即可。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>README.md</code></td>
+<td style="text-align:left">应用的自述文件，说明应用的用途、安装方法等。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>test/</code></td>
+<td style="text-align:left">单元测试、固件和其他测试装置。详情请参阅<a href="https://ruby-china.github.io/rails-guides/testing.html" target="_blank" rel="noopener">Rails 应用测试指南</a>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>tmp/</code></td>
+<td style="text-align:left">临时文件（如缓存和 PID 文件）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>vendor/</code></td>
+<td style="text-align:left">包含第三方代码，如第三方 gem。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.gitignore</code></td>
+<td style="text-align:left">告诉 Git 要忽略的文件（或模式）。详情参见 <a href="https://help.github.com/articles/ignoring-files" target="_blank" rel="noopener">GitHub 帮助文档</a>。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="类-class-、模块-module-、块、方法"><a href="#类-class-、模块-module-、块、方法" class="headerlink" title="类(class)、模块(module)、块、方法"></a>类(class)、模块(module)、块、方法</h2><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><ul>
+<li><p>initialize方法</p>
+<p><strong>initialize</strong> 方法是一个标准的 Ruby 类方法，是类的构造函数，与其他面向对象编程语言中的 <strong>constructor</strong> 工作原理类似。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span></span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(w,h)</span></span></span><br><span class="line">      @width, @height = w, h</span><br><span class="line">   <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>实例变量</p>
+<p><strong>实例变量</strong>是类属性，它们在使用类创建对象时就变成对象的属性。每个对象的属性是单独赋值的，和其他对象之间不共享值。在类的内部，是使用 @ 运算符访问这些属性，在类的外部，则是使用称为<strong>访问器方法</strong>的<strong>公共</strong>方法进行访问。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span></span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(w,h)</span></span></span><br><span class="line">      <span class="comment"># 给实例变量赋值</span></span><br><span class="line">      @width, @height = w, h</span><br><span class="line">   <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getter &amp; setter方法</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 访问器方法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printWidth</span></span></span><br><span class="line">   @width</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printHeight</span></span></span><br><span class="line">   @height</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 设置器方法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setWidth=</span><span class="params">(value)</span></span></span><br><span class="line">   @width = value</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setHeight=</span><span class="params">(value)</span></span></span><br><span class="line">   @height = value</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>!!! Ruby 定义了</p>
+<p><strong>attr_accessor :variable_name</strong></p>
+<p><strong>attr_reader :variable_name</strong></p>
+<p><strong>attr_writer :variable_name</strong> 三种属性声明方法。</p>
+<p>其中：<strong>accessor=reader+writer</strong>。</p>
+<p>同时注意：变量名前一定要带冒号<code>:</code></p>
+<p>变量名之间要用逗号<code>,</code> 分割。</p>
+</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span>  </span></span><br><span class="line">  <span class="keyword">attr_accessor</span> <span class="symbol">:name</span>  </span><br><span class="line">    </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">()</span></span>  </span><br><span class="line">    @name = <span class="string">"yanzilee9292"</span>  </span><br><span class="line">  <span class="keyword">end</span>  </span><br><span class="line"><span class="keyword">end</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#test  </span></span><br><span class="line">t = Test.new</span><br><span class="line">puts t.name</span><br><span class="line">t.name = <span class="string">"abcc"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Rails常见命令行命令"><a href="#Rails常见命令行命令" class="headerlink" title="Rails常见命令行命令"></a>Rails常见命令行命令</h2><table>
+<thead>
+<tr>
+<th>完整形式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$ rails server</td>
+<td>开启服务器<br>！！rails server默认只对本机有效<br><strong>用其他机器访问</strong>（开虚拟机的时候）使用<br><strong>$ rails server -b 0.0.0.0</strong><br><code>-b</code> 选项把 Rails 绑定到指定的 IP（默认为 localhost）。指定 <code>-d</code> 选项后，服务器会以守护进程的形式运行。<br>如果想让服务器监听其他端口，可通过 <code>-p</code> 选项指定。所处的环境（默认为开发环境）可由 <code>-e</code> 选项指定。<br>$ rails server -e production -p 4000</td>
+</tr>
+<tr>
+<td>$ rails console</td>
+<td></td>
+</tr>
+<tr>
+<td>$ rails generate GENERATOR [args] [options]</td>
+<td><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1554526365255.png" alt="1554526365255"></td>
+</tr>
+<tr>
+<td>$ rails test</td>
+<td></td>
+</tr>
+<tr>
+<td>$ rails routes</td>
+<td>列出标准 REST 动作都具有对应的路由。</td>
+</tr>
+<tr>
+<td>$ bundle install</td>
+<td></td>
+</tr>
+<tr>
+<td>$ rails about</td>
+<td>输出以下信息：Ruby、RubyGems、Rails 的版本号，Rails 使用的组件，应用所在的文件夹，Rails 当前所处的环境名，应用使用的数据库适配器，以及数据库模式版本号。如果想向他人需求帮助，检查安全补丁对你是否有影响，或者需要查看现有 Rails 应用的状态，就可以使用这个任务。</td>
+</tr>
+<tr>
+<td>\$rails db:migrate<br>​\$rails db:create</td>
+<td>命名空间 db: 中最常用的任务是 migrate 和 create，这两个任务会尝试运行所有迁移相关的任务（up、down、redo、reset）。rails db:version 在排查问题时很有用，它会输出数据库的当前版本。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Rails-的generate生成"><a href="#Rails-的generate生成" class="headerlink" title="Rails 的generate生成"></a>Rails 的generate生成</h3><h4 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rails generate controller Welcome index</span><br></pre></td></tr></table></figure>
+<p>会生成多个文件和一个路由</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">文件/文件夹</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>app/controllers/welcome_controller.rb</code></td>
+<td style="text-align:left">Welcome <strong>控制器文件</strong><br>其中包含了方法index</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>app/views/welcome/</code> <br><code>app/views/welcome/index.html.erb</code></td>
+<td style="text-align:left">控制器的<strong>视图</strong>保存在这里</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>test/controllers/welcome_controller_test.rb</code></td>
+<td style="text-align:left">控制器的<strong>测试文件</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>app/helpers/welcome_helper.rb</code></td>
+<td style="text-align:left">视图<strong>辅助方法</strong>文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>app/assets/javascripts/welcome.coffee</code></td>
+<td style="text-align:left">控制器的 <strong>CoffeeScript</strong> 文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>app/assets/stylesheets/welcome.scss</code></td>
+<td style="text-align:left">控制器的<strong>样式表</strong>文件</td>
+</tr>
+</tbody>
+</table>
+<p><strong>文件名是用蛇底welcome_controller.rb命名。类名是用驼峰命名WelcomeController</strong></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">create  app/controllers/welcome_controller.rb</span><br><span class="line"> route  get <span class="string">'welcome/index'</span></span><br><span class="line">invoke  erb</span><br><span class="line">create    app/views/welcome</span><br><span class="line">create    app/views/welcome/index.html.erb</span><br><span class="line">invoke  test_unit</span><br><span class="line">create    test/controllers/welcome_controller_test.rb</span><br><span class="line">invoke  helper</span><br><span class="line">create    app/helpers/welcome_helper.rb</span><br><span class="line">invoke    test_unit</span><br><span class="line">invoke  assets</span><br><span class="line">invoke    coffee</span><br><span class="line">create      app/assets/javascripts/welcome.coffee</span><br><span class="line">invoke    scss</span><br><span class="line">create      app/assets/stylesheets/welcome.scss</span><br></pre></td></tr></table></figure>
+<h4 id="model"><a href="#model" class="headerlink" title="model"></a>model</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rails generate model Article <span class="symbol">title:</span>string <span class="symbol">text:</span>text</span><br></pre></td></tr></table></figure>
+<p>生成Article模型，成员：字符串类型的title和文本类型的text。</p>
+<p>为此 Rails 会创建一堆文件。这里我们只关注 <code>app/models/article.rb</code> 和 <code>db/migrate/20140120191729_create_articles.rb</code> 这两个文件。</p>
+<p>Active Record 很智能，能自动把数据表的字段名映射到模型属性上，因此无需在 Rails 模型中声明属性，让 Active Record 自动完成即可。</p>
+<ul>
+<li>运行迁移</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rails <span class="symbol">db:</span>migrate</span><br></pre></td></tr></table></figure>
+<p>Rails 很智能，只会运行针对当前数据库还没有运行过的迁移</p>
+<h4 id="撤销命令"><a href="#撤销命令" class="headerlink" title="撤销命令"></a>撤销命令</h4><p>控制器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rails generate controller StaticPages home <span class="built_in">help</span></span><br><span class="line">$ rails destroy controller StaticPages home <span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<p>模型</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rails generate model User name:string email:string</span><br><span class="line">$ rails destroy model User</span><br></pre></td></tr></table></figure>
+<p>迁移</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ rails db:migrate</span><br><span class="line">$ rails db:rollback</span><br><span class="line"></span><br><span class="line">特定版本迁移</span><br><span class="line">$ rails db:migrate VERSION=0</span><br></pre></td></tr></table></figure>
+<h2 id="控制器controller"><a href="#控制器controller" class="headerlink" title="控制器controller"></a>控制器controller</h2><h3 id="1、Rails-控制器的命名约定"><a href="#1、Rails-控制器的命名约定" class="headerlink" title="1、Rails 控制器的命名约定"></a>1、Rails 控制器的命名约定</h3><p>最后一个单词使用<strong>复数形式</strong>，但也有例外，比如 <code>ApplicationController</code>。例如：用 <code>ClientsController</code>，而不是 <code>ClientController</code>；用 <code>SiteAdminsController</code>，而不是 <code>SiteAdminController</code> 或 <code>SitesAdminsController</code>。</p>
+<p>遵守这一约定便可享用<strong>默认的路由生成器</strong>（例如 <code>resources</code> 等），无需再指定 <code>:path</code> 或 <code>:controller</code> 选项，而且 <strong>URL 和路径的辅助方法</strong>也能保持一致性。</p>
+<h3 id="2、方法和动作"><a href="#2、方法和动作" class="headerlink" title="2、方法和动作"></a>2、方法和动作</h3><p>一个控制器是一个 Ruby 类，继承自 <code>ApplicationController</code>，和其他类一样，定义了很多方法。应用接到请求时，<strong>路由决定运行哪个控制器和哪个动作</strong>，然后 <strong>Rails 创建该控制器的实例</strong>，运行<strong>与动作同名的方法</strong>。</p>
+<h3 id="3、参数！"><a href="#3、参数！" class="headerlink" title="3、参数！"></a>3、参数！</h3><p>在 Web 应用中参数分为两类。</p>
+<ul>
+<li><p>第一类“GET数据”，即 URL 中 <code>?</code> 符号后面的部分。</p>
+</li>
+<li><p>第二类经常称为“POST 数据”，一般来自用户填写的表单。之所以叫做“POST 数据”，是因为这类数据只能随 HTTP POST 请求发送。</p>
+<p>Rails 不区分这两种参数，<strong>在控制器中都可通过 <code>params</code> 散列获取</strong></p>
+</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClientsController</span> &lt; ApplicationController</span></span><br><span class="line">  <span class="comment"># 这个动作使用GET，因为它响应的是 HTTP GET 请求</span></span><br><span class="line">  <span class="comment"># 列出激活客户的 URL 可能是这样的：/clients?status=activated</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">    <span class="keyword">if</span> params[<span class="symbol">:status</span>] == <span class="string">"activated"</span></span><br><span class="line">      @clients = Client.activated</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      @clients = Client.inactivated</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment"># 这个动作使用 POST 参数</span></span><br><span class="line">  <span class="comment"># 这种参数最常来自用户提交的 HTML 表单</span></span><br><span class="line">  <span class="comment"># 在 REST 式架构中，这个动作响应的 URL 是“/clients”</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">create</span></span></span><br><span class="line">    @client = Client.new(params[<span class="symbol">:client</span>])</span><br><span class="line">    <span class="keyword">if</span> @client.save</span><br><span class="line">      redirect_to @client</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      <span class="comment"># 这一行代码覆盖默认的渲染行为</span></span><br><span class="line">      <span class="comment"># 默认渲染的是“create”视图</span></span><br><span class="line">      render <span class="string">"new"</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="1、散列和组参数"><a href="#1、散列和组参数" class="headerlink" title="1、散列和组参数"></a>1、散列和组参数</h4><p><code>params</code> 散列不局限于只能使用一维键值对，其中可以包含数组和嵌套的散列。若想发送数组，要在键名后加上一对空方括号（<code>[]</code>）：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /clients?ids[]=<span class="number">1</span>&amp;ids[]=<span class="number">2</span>&amp;ids[]=<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>“[”和“]”这两个符号不允许出现在 URL 中，所以上面的地址会被编码成 <code>/clients?ids%5b%5d=1&amp;ids%5b%5d=2&amp;ids%5b%5d=3</code>。多数情况下，无需你费心，浏览器会代为编码，接收到这样的请求后，Rails 也会自动解码。如果你要手动向服务器发送这样的请求，就要留心了。</p>
+<p>此时，<code>params[:ids]</code> 的值是 <code>[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]</code>。注意，参数的值始终是字符串，Rails 不会尝试转换类型。</p>
+<h4 id="2、JSON参数"><a href="#2、JSON参数" class="headerlink" title="2、JSON参数"></a>2、JSON参数</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="string">"company"</span>: &#123; <span class="string">"name"</span>: <span class="string">"acme"</span>, <span class="string">"address"</span>: <span class="string">"123 Carrot Street"</span> &#125; &#125;</span><br></pre></td></tr></table></figure>
+<p>控制器收到的 <code>params[:company]</code> 是 <code>{ &quot;name&quot; =&gt; &quot;acme&quot;, &quot;address&quot; =&gt; &quot;123 Carrot Street&quot; }</code>。</p>
+<p>如果在初始化脚本中开启了 <code>config.wrap_parameters</code> 选项，或者在控制器中调用了 <code>wrap_parameters</code> 方法，可以放心地省去 JSON 参数中的根元素。此时，Rails 会以控制器名新建一个键，复制参数，将其存入这个键名下。因此，上面的参数可以写成：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="string">"name"</span>: <span class="string">"acme"</span>, <span class="string">"address"</span>: <span class="string">"123 Carrot Street"</span> &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3、路由参数"><a href="#3、路由参数" class="headerlink" title="3、路由参数"></a>3、路由参数</h4><p><code>params</code> 散列始终有 <code>:controller</code> 和 <code>:action</code> 两个键，但获取这两个值应该使用 <code>controller_name</code>和 <code>action_name</code> 方法。路由中定义的参数，例如 <code>:id</code>，也可通过 <code>params</code> 散列获取。</p>
+<p>例如，假设有个客户列表，可以列出激活和未激活的客户。我们可以定义一个路由，捕获下面这个 URL 中的 <code>:status</code>参数：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get <span class="string">'/clients/:status'</span> =&gt; <span class="string">'clients#index'</span>, <span class="symbol">foo:</span> <span class="string">'bar</span></span><br></pre></td></tr></table></figure>
+<p>此时，用户访问 <code>/clients/active</code> 时，<code>params[:status]</code> 的值是 <code>&quot;active&quot;</code>。同时，<code>params[:foo]</code>的值会被设为 <code>&quot;bar&quot;</code>，就像通过查询字符串传入的一样。控制器还会收到 <code>params[:action]</code>，其值为 <code>&quot;index&quot;</code>，以及 <code>params[:controller]</code>，其值为 <code>&quot;clients&quot;</code>。</p>
+<h4 id="4、default-url-options"><a href="#4、default-url-options" class="headerlink" title="4、default_url_options"></a>4、<code>default_url_options</code></h4><p>在控制器中定义名为 <code>default_url_options</code> 的方法，可以设置所生成的 URL 中都包含的参数。这个方法必须返回一个散列，其值为所需的参数值，而且键必须使用符号：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApplicationController</span> &lt; ActionController::Base</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">default_url_options</span></span></span><br><span class="line">    &#123; <span class="symbol">locale:</span> I18n.locale &#125;</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>这个方法定义的只是预设参数，可以被 <code>url_for</code> 方法的参数覆盖。</p>
+<p>如果像上面的代码那样在 <code>ApplicationController</code> 中定义 <code>default_url_options</code>，设定的默认参数会用于生成所有的 URL。<code>default_url_options</code> 也可以在具体的控制器中定义，此时只影响与该控制器有关的 URL。</p>
+<p>其实，不是生成的每个 URL 都会调用这个方法。为了提高性能，返回的散列会缓存，因此一次请求至少会调用一次。</p>
+<h4 id="5、健壮参数"><a href="#5、健壮参数" class="headerlink" title="5、健壮参数"></a>5、健壮参数</h4><p>加入健壮参数功能后，Action Controller 的参数<strong>禁止在 Avtive Model 中批量赋值</strong>，除非参数在白名单中。也就是说，你要明确选择哪些属性可以批量更新，以防不小心允许用户更新模型中敏感的属性。</p>
+<p>此外，还可以标记哪些参数是必须传入的，如果没有收到，会交由预定义的 <code>raise/rescue</code> 流程处理，返回“400 Bad Request”。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PeopleController</span> &lt; ActionController::Base</span></span><br><span class="line">  <span class="comment"># 这会导致 ActiveModel::ForbiddenAttributesError 异常抛出</span></span><br><span class="line">  <span class="comment"># 因为没有明确指明允许赋值的属性就批量更新了</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">create</span></span></span><br><span class="line">    Person.create(params[<span class="symbol">:person</span>])</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment"># 只要参数中有 person 键，这个动作就能顺利执行</span></span><br><span class="line">  <span class="comment"># 否则，抛出 ActionController::ParameterMissing 异常</span></span><br><span class="line">  <span class="comment"># ActionController::Base 会捕获这个异常，返回 400 Bad Request 响应</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">update</span></span></span><br><span class="line">    person = current_account.people.find(params[<span class="symbol">:id</span>])</span><br><span class="line">    person.update!(person_params)</span><br><span class="line">    redirect_to person</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"> </span><br><span class="line">  private</span><br><span class="line">    <span class="comment"># 在一个私有方法中封装允许的参数是个好做法</span></span><br><span class="line">    <span class="comment"># 这样可以在 create 和 update 动作中复用</span></span><br><span class="line">    <span class="comment"># 此外，可以细化这个方法，针对每个用户检查允许的属性</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">person_params</span></span></span><br><span class="line">      params.<span class="keyword">require</span>(<span class="symbol">:person</span>).permit(<span class="symbol">:name</span>, <span class="symbol">:age</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h5 id="1、允许使用的标量值"><a href="#1、允许使用的标量值" class="headerlink" title="1、允许使用的标量值"></a>1、允许使用的标量值</h5><p>如果允许使用<code>:id</code>:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">params.permit(<span class="symbol">:id</span>)</span><br></pre></td></tr></table></figure>
+<p>若 <code>params</code> 中有 <code>:id</code> 键，且 <code>:id</code> 是<strong>标量值</strong>，就可以通过白名单检查；否则 <code>:id</code> 会被过滤掉。因此，不能传入数组、散列或其他对象。</p>
+<p>允许使用的<strong>标量类型</strong>有：<code>String</code>、<code>Symbol</code>、<code>NilClass</code>、<code>Numeric</code>、<code>TrueClass</code>、<code>FalseClass</code>、<code>Date</code>、<code>Time</code>、<code>DateTime</code>、<code>StringIO</code>、<code>IO</code>、<code>ActionDispatch::Http::UploadedFile</code> 和 <code>Rack::Test::UploadedFile</code>。</p>
+<p>若想指定 <code>params</code> 中的值必须为标量数组，可以把键对应的值设为空数组：    </p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">params.permit(<span class="symbol">id:</span> [])</span><br></pre></td></tr></table></figure>
+<p>有时无法或不便声明<strong>散列参数</strong>或其内部结构的<strong>有效键</strong>，此时可以映射为一个空散列：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">params.permit(<span class="symbol">preferences:</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><h4 id="1、命名约定"><a href="#1、命名约定" class="headerlink" title="1、命名约定"></a>1、命名约定</h4><p>Rails 把模型的类名转换成<strong>复数</strong>，然后查找对应的数据表。</p>
+<p>例如，模型类名为 <code>Book</code>，数据表就是 <code>books</code>。Rails 提供的单复数转换功能很强大，常见和不常见的转换方式都能处理。如果类名由多个单词组成，应该按照 Ruby 的约定，使用驼峰式命名法，这时对应的数据库表将使用下划线分隔各单词。    </p>
+<ul>
+<li><p>数据库表名：复数，下划线分隔单词（例如 <code>book_clubs</code>）</p>
+</li>
+<li><p>模型类名：单数，每个单词的首字母大写（例如 <code>BookClub</code>）</p>
+<p>| 模型/类    | 表/模式      |<br>| :——— | :———– |<br>| <code>Article</code>  | <code>articles</code>   |<br>| <code>LineItem</code> | <code>line_items</code> |<br>| <code>Deer</code>     | <code>deers</code>      |<br>| <code>Mouse</code>    | <code>mice</code>       |<br>| <code>Person</code>   | <code>people</code>     |</p>
+</li>
+</ul>
+<h4 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a>关联关系</h4><p>六种</p>
+<ul>
+<li><p><code>belongs_to</code></p>
+</li>
+<li><p><code>has_one</code></p>
+</li>
+<li><p><code>has_many</code></p>
+</li>
+<li><p><code>has_many :through</code></p>
+</li>
+<li><p><code>has_one :through</code></p>
+</li>
+<li><p><code>has_and_belongs_to_many</code></p>
+</li>
+</ul>
+<p>关联使用<strong><code>宏式调用</code></strong> 实现，用声明的形式为模型添加功能。例如，声明一个模型属于（<code>belongs_to</code>）另一个模型后，Rails 会维护两个模型之间的<strong>“主键-外键”</strong>关系，而且还会向模型中添加很多实用的方法。</p>
+<p>1、belongs_to</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span> &lt; ApplicationRecord</span></span><br><span class="line">  belongs_to <span class="symbol">:author</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://ruby-china.github.io/rails-guides/images/belongs_to.png" alt="belongs to"></p>
+<p>Book模型自动关联到Author模型，但是数据表名其实是复数的，在 <code>belongs_to</code> 关联声明中<em><strong>必须使用单数形式</strong></em>。如果在上面的代码中使用复数形式定义 <code>author</code> 关联，应用会报错，提示“uninitialized constant Book::Authors”。</p>
+<p><strong>这是因为 Rails 自动使用关联名推导类名。如果关联名错误地使用复数，推导出的类名也就变成了复数。</strong></p>
+<p>前后端分离</p>
+<p><a href="https://ruby-china.org/topics/31660" target="_blank" rel="noopener">https://ruby-china.org/topics/31660</a></p>
+<p>把返回值转化为json</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EmployeesController</span> &lt; ApplicationController</span></span><br><span class="line">    </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">    <span class="comment">#<span class="doctag">@employees</span> = Employee.all</span></span><br><span class="line">    json_str = Employee.all.to_json   </span><br><span class="line">    render <span class="symbol">:json=&gt;json_str</span>, status=&gt;<span class="string">'200'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">new</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">show</span></span></span><br><span class="line">    @employee = Employee.find(params[<span class="symbol">:id</span>])</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">create</span></span></span><br><span class="line">    @employee = Employee.new(employee_params)</span><br><span class="line">    @employee.save</span><br><span class="line">    json_str = @employee.to_json</span><br><span class="line">    render <span class="symbol">:json=&gt;json_str</span>, status=&gt;<span class="string">'200'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">update</span></span></span><br><span class="line">    @employee = Employee.find(params[<span class="symbol">:id</span>])</span><br><span class="line">    <span class="keyword">if</span> @employee.update(employee_params)</span><br><span class="line">      json_str = @employee.to_json   </span><br><span class="line">      render <span class="symbol">:json=&gt;json_str</span>, status=&gt;<span class="string">'200'</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      render <span class="string">'edit'</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">destroy</span></span></span><br><span class="line">    @employee = Employee.find(params[<span class="symbol">:id</span>])</span><br><span class="line">    @employee.destroy</span><br><span class="line">    json_str = @employee.to_json   </span><br><span class="line">    render <span class="symbol">:json=&gt;json_str</span>, status=&gt;<span class="string">'200'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  private</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">employee_params</span></span></span><br><span class="line">      params.permit(<span class="symbol">:name</span>, <span class="symbol">:gender</span>,<span class="symbol">:age</span>,<span class="symbol">:telephone</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h2 id="视图和渲染"><a href="#视图和渲染" class="headerlink" title="视图和渲染"></a>视图和渲染</h2><h3 id="创建响应"><a href="#创建响应" class="headerlink" title="创建响应"></a>创建响应</h3><p>三种响应方法：</p>
+<ul>
+<li>调用 <code>render</code> 方法，向浏览器发送一个完整的响应；</li>
+<li>调用 <code>redirect_to</code> 方法，向浏览器发送一个 HTTP 重定向状态码；</li>
+<li>调用 <code>head</code> 方法，向浏览器发送只含 HTTP 首部的响应；</li>
+</ul>
+<h4 id="1、默认渲染行为"><a href="#1、默认渲染行为" class="headerlink" title="1、默认渲染行为"></a>1、默认渲染行为</h4><p>在某个<strong>动作（class中的函数）</strong>末尾并没有指定要渲染视图，Rails 会自动在控制器的视图文件夹中寻找 <code>app/views/类s/动作名.html.erb</code> 模板，然后渲染。</p>
+<p>例如</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#app/controllers/books_controller.rb</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BooksController</span> &lt; ApplicationController</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#config/routes.rb</span></span><br><span class="line">resources <span class="symbol">:books</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#app/views/books/index.html.erb</span></span><br><span class="line">&lt;h1&gt;Books are coming soon!&lt;<span class="regexp">/h1&gt;</span></span><br></pre></td></tr></table></figure>
+<p>访问/books的时候，rails自动寻找app/views/books/index.html.erb中的视图进行渲染。</p>
+<h4 id="2、render方法"><a href="#2、render方法" class="headerlink" title="2、render方法"></a>2、render方法</h4><p><code>render</code> 方法的行为有多种定制方式，可以渲染 Rails 模板的默认视图、指定的模板、文件、行间代码或者什么也不渲染。渲染的内容可以是文本、JSON 或 XML。而且还可以设置响应的内容类型和 HTTP 状态码。</p>
+<p>如果不想使用浏览器而直接查看调用 <code>render</code> 方法得到的结果，可以调用 <code>render_to_string</code> 方法。它与 <code>render</code> 的用法完全一样，但是不会把响应发给浏览器，而是直接返回一个字符串。</p>
+<ul>
+<li><p>render方法的选项：</p>
+<ul>
+<li><p><code>:content_type</code></p>
+<p>默认情况下，Rails 渲染得到的结果内容类型为 <code>text/html</code>（如果使用 <code>:json</code> 选项，内容类型为 <code>application/json</code>；如果使用 <code>:xml</code> 选项，内容类型为 <code>application/xml</code>）。如果需要修改内容类型，可使用 <code>:content_type</code> 选项。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render <span class="symbol">file:</span> filename, <span class="symbol">content_type:</span> <span class="string">"application/rss"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>:layout</code></p>
+</li>
+<li><p><code>:location</code></p>
+</li>
+<li><p><code>:status</code></p>
+<p>Rails 会自动为生成的响应附加正确的 HTTP 状态码（大多数情况下是 <code>200 OK</code>）。使用 <code>:status</code> 选项可以修改状态码。</p>
+</li>
+<li><p><code>:formats</code></p>
+<p>Rails 使用请求中指定的格式（或者使用默认的 <code>:html</code>）。如果想改变格式，可以指定 <code>:formats</code> 选项。它的值是一个符号或一个数组。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="1、渲染action的view"><a href="#1、渲染action的view" class="headerlink" title="1、渲染action的view"></a>1、渲染action的view</h5><p>渲染同个控制器中的其他模板，把视图的名字<strong>（用字符串或符号的形式）</strong>传给 <code>render</code> 方法</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span></span></span><br><span class="line">  @book = Book.find(params[<span class="symbol">:id</span>])</span><br><span class="line">  <span class="keyword">if</span> @book.update(book_params)</span><br><span class="line">    redirect_to(@book)</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    render <span class="string">"edit"</span></span><br><span class="line">      <span class="comment">#也可以写成</span></span><br><span class="line">      <span class="comment">#render :edit</span></span><br><span class="line">      <span class="comment">#render action: :edit</span></span><br><span class="line">      <span class="comment">#render (action: :edit)</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h5 id="2、渲染其他controller中某个action的view"><a href="#2、渲染其他controller中某个action的view" class="headerlink" title="2、渲染其他controller中某个action的view"></a>2、渲染其他controller中某个action的view</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">render <span class="string">"products/show"</span></span><br><span class="line">或者</span><br><span class="line">render <span class="symbol">template:</span> <span class="string">"products/show"</span></span><br><span class="line"><span class="comment">#template是一个选项？</span></span><br></pre></td></tr></table></figure>
+<h5 id="3、渲染任意文件"><a href="#3、渲染任意文件" class="headerlink" title="3、渲染任意文件"></a>3、渲染任意文件</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">render <span class="symbol">file:</span> <span class="string">"/u/apps/warehouse_app/current/app/views/products/show"</span></span><br><span class="line"><span class="comment">#应用之外的视图</span></span><br></pre></td></tr></table></figure>
+<h5 id="4、渲染文本"><a href="#4、渲染文本" class="headerlink" title="4、渲染文本"></a>4、渲染文本</h5><p>调用 <code>render</code> 方法时指定 <code>:plain</code> 选项，可以把没有标记语言的纯文本发给浏览器</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render <span class="symbol">plain:</span> <span class="string">"OK"</span></span><br></pre></td></tr></table></figure>
+<h5 id="5、渲染html"><a href="#5、渲染html" class="headerlink" title="5、渲染html"></a>5、渲染html</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render <span class="symbol">html:</span> <span class="string">"&lt;strong&gt;Not Found&lt;/strong&gt;"</span>.html_safe</span><br></pre></td></tr></table></figure>
+<h5 id="6、渲染json"><a href="#6、渲染json" class="headerlink" title="6、渲染json"></a>6、渲染json</h5><p>JSON 是一种 JavaScript 数据格式，很多 Ajax 库都用这种格式。Rails 内建支持把对象转换成 JSON，经渲染后再发送给浏览器。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render <span class="symbol">json:</span> @product</span><br></pre></td></tr></table></figure>
+<h5 id="7、渲染xml"><a href="#7、渲染xml" class="headerlink" title="7、渲染xml"></a>7、渲染xml</h5><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render <span class="symbol">xml:</span> @product</span><br></pre></td></tr></table></figure>
+<h4 id="3、-redirect-to-方法"><a href="#3、-redirect-to-方法" class="headerlink" title="3、 redirect_to 方法"></a>3、 <code>redirect_to</code> 方法</h4><p><code>render</code> 告诉 Rails 构建响应时使用哪个<strong>视图（或其他静态资源）</strong>。<code>redirect_to</code> 做的事情则完全不同，它告诉浏览器向<strong>另一个 URL 发起新请求</strong>。例如，在应用中的任何地方使用下面的代码都可以重定向到 <code>photos</code> 控制器的 <code>index</code> 动作</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redirect_to photos_url</span><br></pre></td></tr></table></figure>
+<p>区别render和redirect_to</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">  @books = Book.all</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#render</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span></span></span><br><span class="line">  @book = Book.find_by(<span class="symbol">id:</span> params[<span class="symbol">:id</span>])</span><br><span class="line">  <span class="keyword">if</span> @book.<span class="literal">nil</span>?</span><br><span class="line">    render <span class="symbol">action:</span> <span class="string">"index"</span></span><br><span class="line">    <span class="comment">#不会执行index动作，只会去寻找相应的视图</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#redirect_to</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span></span></span><br><span class="line">  @book = Book.find_by(<span class="symbol">id:</span> params[<span class="symbol">:id</span>])</span><br><span class="line">  <span class="keyword">if</span> @book.<span class="literal">nil</span>?</span><br><span class="line">  	redirect_to <span class="symbol">action:</span> <span class="symbol">:index</span></span><br><span class="line">    <span class="comment">#浏览器会向 index 页面发起新请求，执行 index 方法中的代码</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="4、head构建只有首部的响应"><a href="#4、head构建只有首部的响应" class="headerlink" title="4、head构建只有首部的响应"></a>4、<code>head</code>构建只有首部的响应</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">head <span class="symbol">:bad_request</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生成的首部文件：</span></span><br><span class="line"></span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">400</span> Bad Request</span><br><span class="line"><span class="symbol">Connection:</span> close</span><br><span class="line"><span class="symbol">Date:</span> Sun, <span class="number">24</span> Jan <span class="number">2010</span> <span class="number">12</span><span class="symbol">:</span><span class="number">15</span><span class="symbol">:</span><span class="number">53</span> GMT</span><br><span class="line">Transfer-<span class="symbol">Encoding:</span> chunked</span><br><span class="line">Content-<span class="symbol">Type:</span> text/html; charset=utf-<span class="number">8</span></span><br><span class="line">X-<span class="symbol">Runtime:</span> <span class="number">0</span>.<span class="number">0134</span>83</span><br><span class="line">Set-<span class="symbol">Cookie:</span> _blog_session=...snip...; path=<span class="regexp">/; HttpOnly</span></span><br><span class="line"><span class="regexp">Cache-Control: no-cache</span></span><br></pre></td></tr></table></figure>
+<h2 id="Session会话"><a href="#Session会话" class="headerlink" title="Session会话"></a>Session会话</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/03/git远程操作/" rel="next" title="git操作">
+                <i class="fa fa-chevron-left"></i> git操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/04/virtualbox+vagrant/" rel="prev" title="Virtualbox">
+                Virtualbox <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zacker zhuang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Rails学习总结"><span class="nav-number">1.</span> <span class="nav-text">Rails学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Rails-应用架构"><span class="nav-number">1.1.</span> <span class="nav-text">Rails 应用架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类-class-、模块-module-、块、方法"><span class="nav-number">1.2.</span> <span class="nav-text">类(class)、模块(module)、块、方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rails常见命令行命令"><span class="nav-number">1.3.</span> <span class="nav-text">Rails常见命令行命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rails-的generate生成"><span class="nav-number">1.3.1.</span> <span class="nav-text">Rails 的generate生成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#controller"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">controller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#model"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销命令"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">撤销命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制器controller"><span class="nav-number">1.4.</span> <span class="nav-text">控制器controller</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Rails-控制器的命名约定"><span class="nav-number">1.4.1.</span> <span class="nav-text">1、Rails 控制器的命名约定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、方法和动作"><span class="nav-number">1.4.2.</span> <span class="nav-text">2、方法和动作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、参数！"><span class="nav-number">1.4.3.</span> <span class="nav-text">3、参数！</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、散列和组参数"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">1、散列和组参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、JSON参数"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">2、JSON参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、路由参数"><span class="nav-number">1.4.3.3.</span> <span class="nav-text">3、路由参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、default-url-options"><span class="nav-number">1.4.3.4.</span> <span class="nav-text">4、default_url_options</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、健壮参数"><span class="nav-number">1.4.3.5.</span> <span class="nav-text">5、健壮参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、允许使用的标量值"><span class="nav-number">1.4.3.5.1.</span> <span class="nav-text">1、允许使用的标量值</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.5.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、命名约定"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">1、命名约定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联关系"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">关联关系</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#视图和渲染"><span class="nav-number">1.6.</span> <span class="nav-text">视图和渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建响应"><span class="nav-number">1.6.1.</span> <span class="nav-text">创建响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、默认渲染行为"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">1、默认渲染行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、render方法"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">2、render方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、渲染action的view"><span class="nav-number">1.6.1.2.1.</span> <span class="nav-text">1、渲染action的view</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、渲染其他controller中某个action的view"><span class="nav-number">1.6.1.2.2.</span> <span class="nav-text">2、渲染其他controller中某个action的view</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、渲染任意文件"><span class="nav-number">1.6.1.2.3.</span> <span class="nav-text">3、渲染任意文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、渲染文本"><span class="nav-number">1.6.1.2.4.</span> <span class="nav-text">4、渲染文本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、渲染html"><span class="nav-number">1.6.1.2.5.</span> <span class="nav-text">5、渲染html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6、渲染json"><span class="nav-number">1.6.1.2.6.</span> <span class="nav-text">6、渲染json</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7、渲染xml"><span class="nav-number">1.6.1.2.7.</span> <span class="nav-text">7、渲染xml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、-redirect-to-方法"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">3、 redirect_to 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、head构建只有首部的响应"><span class="nav-number">1.6.1.4.</span> <span class="nav-text">4、head构建只有首部的响应</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session会话"><span class="nav-number">1.7.</span> <span class="nav-text">Session会话</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zacker zhuang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

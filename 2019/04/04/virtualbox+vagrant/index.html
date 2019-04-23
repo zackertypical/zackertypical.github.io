@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="加速box安装的方法在网址中点击打开要安装的系统，在vagrant文件夹中执行 123456$ vagrant init ubuntu/xenial64A `Vagrantfile` has been placed in this directory. You are nowready to `vagrant up` your first virtual environment! Please r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Virtualbox">
+<meta property="og:url" content="http://yoursite.com/2019/04/04/virtualbox+vagrant/index.html">
+<meta property="og:site_name" content="Zacker&#39;s blog">
+<meta property="og:description" content="加速box安装的方法在网址中点击打开要安装的系统，在vagrant文件夹中执行 123456$ vagrant init ubuntu/xenial64A `Vagrantfile` has been placed in this directory. You are nowready to `vagrant up` your first virtual environment! Please r">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1554357499195.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1554541103279.png">
+<meta property="og:updated_time" content="2019-04-07T13:27:32.952Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Virtualbox">
+<meta name="twitter:description" content="加速box安装的方法在网址中点击打开要安装的系统，在vagrant文件夹中执行 123456$ vagrant init ubuntu/xenial64A `Vagrantfile` has been placed in this directory. You are nowready to `vagrant up` your first virtual environment! Please r">
+<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1554357499195.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/04/virtualbox+vagrant/">
+
+
+
+
+
+  <title>Virtualbox | Zacker's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zacker's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/virtualbox+vagrant/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zacker zhuang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zacker's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Virtualbox</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-04T13:12:07+08:00">
+                2019-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="加速box安装的方法"><a href="#加速box安装的方法" class="headerlink" title="加速box安装的方法"></a>加速box安装的方法</h2><p>在<a href="https://app.vagrantup.com/boxes/search" target="_blank" rel="noopener">网址</a>中点击打开要安装的系统，在vagrant文件夹中执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init ubuntu/xenial64</span><br><span class="line"></span><br><span class="line">A `Vagrantfile` has been placed <span class="keyword">in</span> this directory. You are now</span><br><span class="line">ready to `vagrant up` your first virtual environment! Please <span class="built_in">read</span></span><br><span class="line">the comments <span class="keyword">in</span> the Vagrantfile as well as documentation on</span><br><span class="line">`vagrantup.com` <span class="keyword">for</span> more information on using Vagrant.</span><br></pre></td></tr></table></figure>
+<p>我安装的是ubuntu/xenial64，接下来执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant up</span><br><span class="line">Bringing machine <span class="string">'default'</span> up with <span class="string">'virtualbox'</span> provider...</span><br><span class="line">==&gt; default: Box <span class="string">'ubuntu/xenial64'</span> could not be found. Attempting to find and install...</span><br><span class="line">    default: Box Provider: virtualbox</span><br><span class="line">    default: Box Version: &gt;= 0</span><br><span class="line">==&gt; default: Loading metadata <span class="keyword">for</span> box <span class="string">'ubuntu/xenial64'</span></span><br><span class="line">    default: URL: https://vagrantcloud.com/ubuntu/xenial64</span><br><span class="line">==&gt; default: Adding box <span class="string">'ubuntu/xenial64'</span> (v20190325.0.0) <span class="keyword">for</span> provider: virtualbox</span><br><span class="line">    default: Downloading: https://vagrantcloud.com/ubuntu/boxes/xenial64/versions/20190325.0.0/providers/virtualbox.box</span><br><span class="line">    default: Download redirected to host: cloud-images.ubuntu.com</span><br><span class="line">    default: Progress: 0% (Rate: 61440/s, Estimated time remaining: 4:03:53)</span><br></pre></td></tr></table></figure>
+<p>Ctrl+C终止下载，得到下载网址<a href="https://vagrantcloud.com/ubuntu/boxes/xenial64/versions/20190325.0.0/providers/virtualbox.box" target="_blank" rel="noopener">https://vagrantcloud.com/ubuntu/boxes/xenial64/versions/20190325.0.0/providers/virtualbox.box</a> 然后复制到迅雷链接里下载。</p>
+<p>下载得到文件virtualbox.box，复制文件夹下，执行指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box add ubuntu/xenial64 virtualbox.box</span><br></pre></td></tr></table></figure>
+<p>查看是否安装成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant list</span><br><span class="line">ubuntu/xenial64 (virtualbox, 0)</span><br></pre></td></tr></table></figure>
+<p>接下来</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant up</span><br></pre></td></tr></table></figure>
+<p>用xshell登录</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1554357499195.png" alt="1554357499195"></p>
+<p>在vagrant文件夹下输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant ssh-config</span><br><span class="line">Host default</span><br><span class="line">  HostName 127.0.0.1</span><br><span class="line">  User vagrant</span><br><span class="line">  Port 2222</span><br><span class="line">  UserKnownHostsFile /dev/null</span><br><span class="line">  StrictHostKeyChecking no</span><br><span class="line">  PasswordAuthentication no</span><br><span class="line">  IdentityFile C:/vagrant/ubuntu/.vagrant/machines/default/virtualbox/private_key</span><br><span class="line">  IdentitiesOnly yes</span><br><span class="line">  LogLevel FATAL</span><br></pre></td></tr></table></figure>
+<p>得到private_key的地址</p>
+<h3 id="root账户登录"><a href="#root账户登录" class="headerlink" title="root账户登录"></a>root账户登录</h3><p><a href="https://blog.csdn.net/github_38097011/article/details/83688607" target="_blank" rel="noopener">https://blog.csdn.net/github_38097011/article/details/83688607</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo -i</span><br></pre></td></tr></table></figure>
+<h3 id="换源教程"><a href="#换源教程" class="headerlink" title="换源教程"></a>换源教程</h3><p>其他源：<a href="https://blog.csdn.net/qq_35451572/article/details/79516563" target="_blank" rel="noopener">https://blog.csdn.net/qq_35451572/article/details/79516563</a></p>
+<p>1、备份源文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/apt/</span><br><span class="line">$ sudo cp sources.list sources.list.bak </span><br><span class="line">$ sudo vim sources.list</span><br></pre></td></tr></table></figure>
+<p>2、删除原来的内容，替换以下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse </span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse </span><br><span class="line"><span class="comment">##测试版源 </span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse </span><br><span class="line"><span class="comment"># 源码 </span></span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse </span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse </span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse </span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse </span><br><span class="line"><span class="comment">##测试版源 </span></span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse </span><br><span class="line"><span class="comment"># Canonical 合作伙伴和附加 </span></span><br><span class="line">deb http://archive.canonical.com/ubuntu/ xenial partner </span><br><span class="line">deb http://extras.ubuntu.com/ubuntu/ xenial main</span><br></pre></td></tr></table></figure>
+<p>3、更新源和软件 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update  <span class="comment">#更新源</span></span><br><span class="line">$ sudo apt-get upgrade <span class="comment">#更新软件</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>一些命令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  更新源</span><br><span class="line">sudo apt-get install package 安装包</span><br><span class="line">sudo apt-get remove package 删除包</span><br><span class="line">sudo apt-cache search package 搜索软件包</span><br><span class="line">sudo apt-cache show package  获取包的相关信息，如说明、大小、版本等</span><br><span class="line">sudo apt-get install package --reinstall  重新安装包</span><br><span class="line">sudo apt-get -f install  修复安装</span><br><span class="line">sudo apt-get remove package --purge 删除包，包括配置文件等</span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境</span><br><span class="line">sudo apt-get upgrade 更新已安装的包</span><br><span class="line">sudo apt-get dist-upgrade 升级系统</span><br><span class="line">sudo apt-cache depends package 了解使用该包依赖那些包</span><br><span class="line">sudo apt-cache rdepends package 查看该包被哪些包依赖</span><br><span class="line">sudo apt-get <span class="built_in">source</span> package  下载该包的源代码</span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖</span><br></pre></td></tr></table></figure>
+<h3 id="安装rvm"><a href="#安装rvm" class="headerlink" title="安装rvm"></a>安装rvm</h3><p>网络不是很稳定。。要是尝试很多次</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo curl -L get.rvm.io | bash -s stable</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>换掉源镜像</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"ruby_url=https://cache.ruby-china.com/pub/ruby"</span> &gt; ~/.rvm/user/db</span><br></pre></td></tr></table></figure>
+<p>](<a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">https://hexo.io/docs/generating.html</a>)</p>
+<h3 id="访问rails"><a href="#访问rails" class="headerlink" title="访问rails"></a>访问rails</h3><p>rails server默认只对本机有效，这个地方。。。坑了我太久了。。。</p>
+<p>如要其他机器访问，请使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rails server -b 0.0.0.0</span><br></pre></td></tr></table></figure>
+<h3 id="RubyMine连接虚拟机上的解释器"><a href="#RubyMine连接虚拟机上的解释器" class="headerlink" title="RubyMine连接虚拟机上的解释器"></a>RubyMine连接虚拟机上的解释器</h3><p><a href="https://www.jetbrains.com/help/ruby/configuring-remote-interpreters-using-vagrant.html" target="_blank" rel="noopener">https://www.jetbrains.com/help/ruby/configuring-remote-interpreters-using-vagrant.html</a></p>
+<p>1、在settings里的Languages&amp;Frameworks</p>
+<p><code>Ctrl+Alt+S</code>调出<code>Ruby SDK and Gems</code>，<code>Alt+Insert</code>添加new remote</p>
+<p>2、选择Vagrant，找到vagrant虚拟机的路径</p>
+<p>3、然后指定rvm或者ruby在该虚拟机下的路径 ，点击ok即可</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1554541103279.png" alt="1554541103279"></p>
+<p>4、接下来就可以在本地调试了</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/03/rails/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/05/rails路由总结/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zacker zhuang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加速box安装的方法"><span class="nav-number">1.</span> <span class="nav-text">加速box安装的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#root账户登录"><span class="nav-number">1.1.</span> <span class="nav-text">root账户登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#换源教程"><span class="nav-number">1.2.</span> <span class="nav-text">换源教程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装rvm"><span class="nav-number">1.3.</span> <span class="nav-text">安装rvm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问rails"><span class="nav-number">1.4.</span> <span class="nav-text">访问rails</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RubyMine连接虚拟机上的解释器"><span class="nav-number">1.5.</span> <span class="nav-text">RubyMine连接虚拟机上的解释器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zacker zhuang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
