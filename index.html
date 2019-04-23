@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang>
+<html class="theme-next pisces use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +13,13 @@
 <meta name="theme-color" content="#222">
 
 
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -74,6 +81,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Zacker's blog" type="application/atom+xml">
+
 
 
 
@@ -93,7 +102,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -248,9 +257,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -350,8 +391,15 @@
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/19/Untitled 1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -469,11 +517,18 @@
       
         
           
-            <p><img src="assets/1555170770526.png" alt="1555170770526"></p>
-<p>以及，提醒一下，接口返回类型一类的东西（就是模型里头用integer表示，且设有Module的类型）时，应该尽量用字符串表示，接收的时候也是</p>
-<p>具体这种Module怎么用，可以看下ConstantHelper</p>
+          
+以及，提醒一下，接口返回类型一类的东西（就是模型里头用integer表示，且设有Module的类型）时，应该尽量用字符串表示，接收的时候也是
+具体这种Module怎么用，可以看下ConstantHelper
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/13/后端注意事项/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -539,7 +594,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/11/Rails Active Record/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2019/04/11/Rails Active Record/" itemprop="url">接口</a></h1>
         
 
         <div class="post-meta">
@@ -561,6 +616,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/rails/" itemprop="url" rel="index">
+                    <span itemprop="name">rails</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -591,47 +668,44 @@
       
         
           
-            <h2 id="查询接口"><a href="#查询接口" class="headerlink" title="查询接口"></a>查询接口</h2><p>以下是所有接口的列表</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>find</code></td>
-<td>检索指定<code>主键</code>对应的对象</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><code>create_with</code></li>
-<li><code>distinct</code></li>
-<li><code>eager_load</code></li>
-<li><code>extending</code></li>
-<li><code>from</code></li>
-<li><code>group</code></li>
-<li><code>having</code></li>
-<li><code>includes</code></li>
-<li><code>joins</code></li>
-<li><code>left_outer_joins</code></li>
-<li><code>limit</code></li>
-<li><code>lock</code></li>
-<li><code>none</code></li>
-<li><code>offset</code></li>
-<li><code>order</code></li>
-<li><code>preload</code></li>
-<li><code>readonly</code></li>
-<li><code>references</code></li>
-<li><code>reorder</code></li>
-<li><code>reverse_order</code></li>
-<li><code>select</code></li>
-<li><code>where</code></li>
-</ul>
+          查询接口以下是所有接口的列表
 
-          
+
+
+方法
+用途
+
+
+
+
+find
+检索指定主键对应的对象
+
+
+
+
+create_with
+distinct
+eager_load
+extending
+
+from
+
+group
+having
+includes
+joins
+left_outer_joins
+limit
+l
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/11/Rails Active Record/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -749,17 +823,207 @@
       
         
           
-            <h2 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h2><p>哈希（Hash）本质上就是数组，只不过它的索引不局限于只能使用数字。哈希的索引（或者叫“键”）几乎可以使用任何对象。例如，可以使用字符串做键</p>
-<h2 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h2><p>常见参数有：必选参数，可选参数，带默认值的参数以及命名参数。</p>
-<h3 id="哈希作为参数"><a href="#哈希作为参数" class="headerlink" title="哈希作为参数"></a>哈希作为参数</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calculate</span><span class="params">(attributes = &#123;&#125;)</span></span></span><br><span class="line">	@name = attributes[<span class="symbol">:name</span>]</span><br><span class="line">	@email = attributes[<span class="symbol">:email</span>]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>参数的默认值是一个空哈希，所以我们可以定义一个没有名字或没有电子邮件地址的用户。如果键不存在会返回nil，所以如果没定<br>键，attributes[:name]会返回nil。</p>
-<h3 id="命名参数"><a href="#命名参数" class="headerlink" title="命名参数"></a>命名参数</h3><p>函数调用的每个参数定义一个专门的名称。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(<span class="symbol">str:</span> <span class="string">"foo"</span>, <span class="symbol">num:</span> <span class="number">424242</span>)</span></span></span><br><span class="line">    [str,num]</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">foo(<span class="symbol">str:</span> <span class="string">'buz'</span>, <span class="symbol">num:</span> <span class="number">9</span>) <span class="comment">#=&gt; ['buz', 9]</span></span><br><span class="line">foo(<span class="symbol">str:</span> <span class="string">'bar'</span>) <span class="comment"># =&gt; ['bar', 424242]</span></span><br><span class="line">foo <span class="comment"># =&gt; ['foo', 424242]</span></span><br><span class="line">foo(<span class="symbol">bar:</span> <span class="string">'buz'</span>) <span class="comment"># =&gt; ArgumentError</span></span><br></pre></td></tr></table></figure>
-<p>想使用命名参数，但又不想提供默认值，即调用函数时必须传入该参数。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">special</span><span class="params">(<span class="symbol">a:</span>, <span class="symbol">b:</span><span class="number">2</span>)</span></span></span><br><span class="line">  p [a, b]</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">special <span class="symbol">b:</span> <span class="number">4</span> <span class="comment"># =&gt; ArgumentError: missing keyword: a</span></span><br><span class="line">special <span class="symbol">a:</span> <span class="number">12</span>, <span class="symbol">b:</span> <span class="number">10</span>  <span class="comment">#=&gt; [12, 10]</span></span><br><span class="line">special <span class="number">12</span>, <span class="symbol">b:</span> <span class="number">10</span>  <span class="comment"># =&gt; ArgumentError: wrong number of arguments (given 1, expected 0)</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mm</span> <span class="params">(a, b=<span class="number">2</span>, *c)</span></span></span><br><span class="line">  <span class="comment">#a必选，b带默认值，c可选</span></span><br><span class="line">  p [a, b, c]</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">mm(<span class="number">1</span>)     <span class="comment"># =&gt;  [1, 2, []]</span></span><br><span class="line">mm(<span class="number">1</span>,<span class="number">10</span>)   <span class="comment">#  =&gt;  [1, 10, []]</span></span><br><span class="line">mm(<span class="number">1</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">21</span>)   <span class="comment">#=&gt;  [1, 10, [20, 21]]</span></span><br></pre></td></tr></table></figure>
-<h2 id="函数返回值"><a href="#函数返回值" class="headerlink" title="函数返回值"></a>函数返回值</h2>
+          hash哈希（Hash）本质上就是数组，只不过它的索引不局限于只能使用数字。哈希的索引（或者叫“键”）几乎可以使用任何对象。例如，可以使用字符串做键
+函数参数常见参数有：必选参数，可选参数，带默认值的参数以及命名参数。
+哈希作为参数12345def calculate(attributes = &#
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/10/ruby语法问题/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zackertypical.github.io/2019/04/10/Linux命令行/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zacker zhuang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zacker's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/10/Linux命令行/" itemprop="url">linux常用命令行汇总</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T14:09:11+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          进程
+
+
+命令
+操作
+
+
+
+
+ps
+报告当前进程快照
+
+
+top
+动态查看进程
+
+
+jobs
+列出活跃的任务
+
+
+bg
+把任务放到后台执行
+
+
+fg
+把任务放到前台执行
+
+
+kill
+给一个进程发送信号
+
+
+killall
+杀死指定名字的进程
+
+
+shutdown
+关机或重启系统
+
+
+
+把进程放到后
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/10/Linux命令行/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -877,56 +1141,23 @@
       
         
           
-            <p>建立模型：</p>
-<p>User</p>
-<p>Relationship</p>
-<p>​    <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1554793482878.png" alt="1554793482878"></p>
-<p>两种关系：</p>
-<p>主动关注</p>
-<p>被动被关注</p>
-<p>模型代码：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ApplicationRecord</span></span><br><span class="line">    has_many <span class="symbol">:active_relationships</span>, <span class="symbol">class_name:</span> <span class="string">"Relationship"</span>,</span><br><span class="line">    <span class="symbol">foreign_key:</span> <span class="string">"follower_id"</span>,</span><br><span class="line">    <span class="symbol">dependent:</span> <span class="symbol">:destroy</span></span><br><span class="line">    <span class="comment">#active_relationships是自己取的名字，不是默认的模型名字，</span></span><br><span class="line">    <span class="comment">#class_name是模型的类名，需要指定（如果active_relationships取名为relationships则不需要）</span></span><br><span class="line">    <span class="comment">#Rails 会寻找名为&lt;class&gt;_id 的外键，其中&lt;class&gt; 是模型类名的小写形式</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Relationship</span> &lt; ApplicationRecord</span></span><br><span class="line">    belongs_to <span class="symbol">:follower</span>, <span class="symbol">class_name:</span> <span class="string">"User"</span></span><br><span class="line">    <span class="comment">#follower和followed都是自己取的名字，都属于User的类</span></span><br><span class="line">    belongs_to <span class="symbol">:followed</span>, <span class="symbol">class_name:</span> <span class="string">"User"</span></span><br><span class="line">    validates <span class="symbol">:follower_id</span>, <span class="symbol">presence:</span> <span class="literal">true</span></span><br><span class="line">    validates <span class="symbol">:followed_id</span>, <span class="symbol">presence:</span> <span class="literal">true</span>	</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>以上代码建立的方法：</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>active_relationship.follower</td>
-<td>获取关注我的用户</td>
-</tr>
-<tr>
-<td>active_relationship.followed</td>
-<td>获取我关注的用户</td>
-</tr>
-<tr>
-<td>user.active_relationships.create(followed_id: other_user.id)</td>
-<td>创建user 发起的<strong>主动</strong>关系</td>
-</tr>
-<tr>
-<td>user.active_relationships.create!(followed_id: other_user.id)</td>
-<td>创建user 发起的主动关系（失败时抛出异常）</td>
-</tr>
-<tr>
-<td>user.active_relationships.build(followed_id: other_user.id)</td>
-<td>构建user 发起的主动关系对象</td>
-</tr>
-</tbody>
-</table>
-<p>如何获取我关注（following)和关注我(followers)的账户</p>
-<p>默认情况下，在has_many :through 关联中，Rails 会寻找关联名单数形式对应的外键。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">has_many <span class="symbol">:followeds</span>, <span class="symbol">through:</span> <span class="symbol">:active_relationships</span></span><br></pre></td></tr></table></figure>
-<p>如果不是默认情况，Rails 允许定制的关联方法：使用source 参数指定following 数组由followed_id组成</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">has_many <span class="symbol">:following</span>, <span class="symbol">through:</span> <span class="symbol">:active_relationships</span>, <span class="symbol">source:</span> <span class="symbol">:followed</span></span><br></pre></td></tr></table></figure>
-<p>我们可以充分利用 Active Record 和数组的功能。例如，可以使用include? 方法检查我关注的用户中有没有某个用户，或者通过关联查找一个用户：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">user.following.<span class="keyword">include</span>?(other_user)</span><br><span class="line">user.following.find(other_user)</span><br><span class="line">user.following.count</span><br><span class="line"><span class="comment">#很多情况下都可以把following 当成数组来用.</span></span><br></pre></td></tr></table></figure>
-
-          
+          建立模型：
+User
+Relationship
+​    
+两种关系：
+主动关注
+被动被关注
+模型代码：
+12345678class User &lt; ApplicationRecord    has_many :active_relationships, class_name: "Relatio
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/09/数据库关联模型/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1044,13 +1275,16 @@
       
         
           
-            <h2 id="SQLAlchemy"><a href="#SQLAlchemy" class="headerlink" title="SQLAlchemy"></a>SQLAlchemy</h2><h4 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> create_engine</span><br><span class="line"></span><br><span class="line">engine = create_engine(<span class="string">'mysql+pymysql://root:123456@localhost:3306/test'</span>,echo=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<p>create_engine()返回一个Engine的实例，并且它表示通过数据库语法处理细节的核心接口，在这种情况下，数据库语法将会被解释称Python的类方法。</p>
-<p>连接 echo参数为True时，会显示每条执行的sql语句。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> Column</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.types <span class="keyword">import</span> CHAR, Integer, String</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.ext.declarative <span class="keyword">import</span> declarative_base</span><br><span class="line"></span><br><span class="line">BaseModel = declarative_base()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init_db</span><span class="params">()</span>:</span></span><br><span class="line">    BaseModel.metadata.create_all(engine)</span><br><span class="line">    <span class="comment">#找到 BaseModel 的所有子类，在数据库建立此表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">drop_db</span><span class="params">()</span>:</span></span><br><span class="line">    BaseModel.metadata.drop_all(engine)</span><br><span class="line">    <span class="comment">#删除所有子表</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(BaseModel)</span>:</span></span><br><span class="line">    __tablename__ = <span class="string">'user'</span> <span class="comment">#数据库表名</span></span><br><span class="line">    id = Column(Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    name = Column(CHAR(<span class="number">30</span>)) <span class="comment"># or Column(String(30))</span></span><br><span class="line"></span><br><span class="line">init_db()</span><br></pre></td></tr></table></figure>
-<h4 id="declarative-base"><a href="#declarative-base" class="headerlink" title="declarative_base()"></a>declarative_base()</h4><p>declarative_base() 创建了一个 BaseModel 类，这个类的子类可以自动与一个表关联。<br>以 User 类为例，它的__tablename__ 属性就是数据库中该表的名称，它有 id 和 name 这两个字段，分别为整型和 30 个定长字符。<br>最后，BaseModel.metadata.create_all(engine) 会找到 BaseModel 的所有子类，并在数据库中建立这些表；drop_all() 则是删除这些表。</p>
-
-          
+          SQLAlchemy数据库连接123from sqlalchemy import create_engineengine = create_engine('mysql+pymysql://root:123456@localhost:3306/test',echo=True)
+create_engin
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/08/python数据库操作/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1116,7 +1350,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/07/mysql/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2019/04/07/mysql/" itemprop="url">mysql</a></h1>
         
 
         <div class="post-meta">
@@ -1138,6 +1372,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1168,30 +1424,18 @@
       
         
           
-            <p>安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install mysql-server</span><br><span class="line">$ sudo apt-get install mysql-client</span><br><span class="line">$ sudo apt-get install libmysqlclient-dev</span><br></pre></td></tr></table></figure>
-<p>开始进入root用户的时候一定记得加<strong>sudo</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mysql -u root -p</span><br></pre></td></tr></table></figure>
-<p>常用指令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service mysql start</span><br><span class="line">$ sudo service mysql stop</span><br><span class="line">$ sudo service mysql status</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line">$ systemctl start mysql</span><br><span class="line">$ systemctl stop mysql</span><br><span class="line">$ systemctl status mysql</span><br></pre></td></tr></table></figure>
-<h3 id="用户操作"><a href="#用户操作" class="headerlink" title="用户操作"></a>用户操作</h3><p>操作之前首先要进入到mysql的终端下工作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u &lt;用户名&gt; -p</span><br></pre></td></tr></table></figure>
-<p>然后输入密码</p>
-<h4 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &lt;&apos;用户名&apos;@&apos;主机号&apos;&gt; IDENTIFIED BY &lt;&apos;密码&apos;&gt;;</span><br><span class="line"></span><br><span class="line"># examples:</span><br><span class="line">CREATE USER &apos;dog&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;123456&apos;;</span><br><span class="line">CREATE USER &apos;pig&apos;@&apos;192.168.1.101_&apos; IDENDIFIED BY &apos;123456&apos;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>username：你将创建的用户名</li>
-<li>host：指定该用户在哪个主机上可以登陆，如果是本地用户可用localhost，如果想让该用户可以<strong>从任意远程主机登陆</strong>，可以使用通配符%</li>
-<li>password：该用户的登陆密码，密码可以为空，如果为空则该用户可以不需要密码登陆服务器</li>
-</ul>
-<h4 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GRANT &lt;权限名&gt; ON &lt;数据库名.表名&gt; TO &lt;&apos;用户名&apos;@&apos;主机号&apos;&gt;</span><br><span class="line"></span><br><span class="line">#examples</span><br><span class="line">GRANT SELECT, INSERT ON test.user TO &apos;pig&apos;@&apos;%&apos;;</span><br><span class="line">GRANT ALL ON *.* TO &apos;pig&apos;@&apos;%&apos;;</span><br><span class="line">GRANT ALL ON maindataplus.* TO &apos;pig&apos;@&apos;%&apos;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL</li>
-<li>databasename：数据库名</li>
-<li>tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用*表示，如*.*</li>
-</ul>
-<h4 id="更改用户密码"><a href="#更改用户密码" class="headerlink" title="更改用户密码"></a>更改用户密码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET PASSWORD FOR &apos;username&apos;@&apos;host&apos; = PASSWORD(&apos;newpassword&apos;);</span><br></pre></td></tr></table></figure>
-
-          
+          安装：
+123$ sudo apt-get install mysql-server$ sudo apt-get install mysql-client$ sudo apt-get install libmysqlclient-dev
+开始进入root用户的时候一定记得加sudo
+1$ sudo 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/07/mysql/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1309,8 +1553,15 @@
       
         
           
-            <h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2>
+          redis
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/07/Redis/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1428,143 +1679,22 @@
       
         
           
-            <p>windows快捷键</p>
-<p>win+数字，开启下方菜单栏中对应的应用</p>
-<p>cmder</p>
-<p>git bash</p>
-<p>snipaste</p>
-<p>listary</p>
-<p>typora</p>
+          windows快捷键
+win+数字，开启下方菜单栏中对应的应用
+cmder
+git bash
+snipaste
+listary
+typora
 
           
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zackertypical.github.io/2019/04/07/pycharm远程同步服务器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zacker zhuang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zacker's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/07/pycharm远程同步服务器/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T11:45:11+08:00">
-                2019-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://blog.csdn.net/autoliuweijie/article/details/80701915" target="_blank" rel="noopener">https://blog.csdn.net/autoliuweijie/article/details/80701915</a></p>
-<p><a href="https://blog.csdn.net/lin_danny/article/details/82185023" target="_blank" rel="noopener">https://blog.csdn.net/lin_danny/article/details/82185023</a></p>
-<p>开启ssh</p>
-<p><a href="https://blog.csdn.net/j790675692/article/details/52798953?utm_source=blogxgwz6" target="_blank" rel="noopener">https://blog.csdn.net/j790675692/article/details/52798953?utm_source=blogxgwz6</a></p>
-<p>然后直接在pycharm的终端窗口开启调试：</p>
-<p>python manage.py runserver 0.0.0.0:8000</p>
-<p>不能直接runserver</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Invalid HTTP_HOST header: &apos;192.168.163.140&apos;. You may need to add &apos;192.168.163.140&apos; to ALLOWED_HOSTS.</span><br></pre></td></tr></table></figure>
-<p>在settings.py</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALLOWED_HOSTS = [&apos;132.232.182.190&apos;]</span><br></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/07/好用的工具/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1648,7 +1778,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1658,10 +1788,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -1669,17 +1799,34 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
           </nav>
 
           
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zackertypical" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -1725,7 +1872,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -1734,6 +1881,15 @@
 
 
 
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=66396197";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -1876,6 +2032,323 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -1914,6 +2387,9 @@
 
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
 
   
 
