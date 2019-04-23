@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>%2F2019%2F04%2F19%2FUntitled%201%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2019%2F04%2F13%2F%E5%90%8E%E7%AB%AF%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%2F</url>
-    <content type="text"><![CDATA[以及，提醒一下，接口返回类型一类的东西（就是模型里头用integer表示，且设有Module的类型）时，应该尽量用字符串表示，接收的时候也是 具体这种Module怎么用，可以看下ConstantHelper]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[接口]]></title>
     <url>%2F2019%2F04%2F11%2FRails%20Active%20Record%2F</url>
     <content type="text"><![CDATA[查询接口以下是所有接口的列表 方法 用途 find 检索指定主键对应的对象 create_with distinct eager_load extending from group having includes joins left_outer_joins limit lock none offset order preload readonly references reorder reverse_order select where]]></content>
@@ -57,11 +47,6 @@
       <tags>
         <tag>数据库</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2019%2F04%2F07%2FRedis%2F</url>
-    <content type="text"><![CDATA[redis]]></content>
   </entry>
   <entry>
     <title></title>

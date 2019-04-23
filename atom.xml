@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zackertypical.github.io/"/>
-  <updated>2019-04-19T05:31:06.772Z</updated>
+  <updated>2019-04-23T16:11:58.090Z</updated>
   <id>https://zackertypical.github.io/</id>
   
   <author>
@@ -15,42 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://zackertypical.github.io/2019/04/19/Untitled%201/"/>
-    <id>https://zackertypical.github.io/2019/04/19/Untitled 1/</id>
-    <published>2019-04-19T05:25:12.721Z</published>
-    <updated>2019-04-19T05:31:06.772Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://zackertypical.github.io/2019/04/13/%E5%90%8E%E7%AB%AF%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
-    <id>https://zackertypical.github.io/2019/04/13/后端注意事项/</id>
-    <published>2019-04-13T15:50:30.809Z</published>
-    <updated>2019-04-13T15:53:14.155Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="assets/1555170770526.png" alt="1555170770526"></p><p>以及，提醒一下，接口返回类型一类的东西（就是模型里头用integer表示，且设有Module的类型）时，应该尽量用字符串表示，接收的时候也是</p><p>具体这种Module怎么用，可以看下ConstantHelper</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;assets/1555170770526.png&quot; alt=&quot;1555170770526&quot;&gt;&lt;/p&gt;
-&lt;p&gt;以及，提醒一下，接口返回类型一类的东西（就是模型里头用integer表示，且设有Module的类型）时，应该尽量用字符串表示，接收的时候也是&lt;/p
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>接口</title>
@@ -206,27 +170,6 @@
     
     
       <category term="数据库" scheme="https://zackertypical.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://zackertypical.github.io/2019/04/07/Redis/"/>
-    <id>https://zackertypical.github.io/2019/04/07/Redis/</id>
-    <published>2019-04-07T15:50:33.282Z</published>
-    <updated>2019-04-08T02:49:50.445Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;redis&quot;&gt;&lt;a href=&quot;#redis&quot; class=&quot;headerlink&quot; title=&quot;redis&quot;&gt;&lt;/a&gt;redis&lt;/h2&gt;
-      
-    
-    </summary>
-    
     
   </entry>
   
