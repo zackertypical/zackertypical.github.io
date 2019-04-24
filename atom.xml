@@ -76,30 +76,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://zackertypical.github.io/2019/04/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%B3%E8%81%94%E6%A8%A1%E5%9E%8B/"/>
-    <id>https://zackertypical.github.io/2019/04/09/数据库关联模型/</id>
-    <published>2019-04-08T16:26:47.045Z</published>
-    <updated>2019-04-09T08:48:54.151Z</updated>
-    
-    <content type="html"><![CDATA[<p>建立模型：</p><p>User</p><p>Relationship</p><p>​    <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1554793482878.png" alt="1554793482878"></p><p>两种关系：</p><p>主动关注</p><p>被动被关注</p><p>模型代码：</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ApplicationRecord</span></span><br><span class="line">    has_many <span class="symbol">:active_relationships</span>, <span class="symbol">class_name:</span> <span class="string">"Relationship"</span>,</span><br><span class="line">    <span class="symbol">foreign_key:</span> <span class="string">"follower_id"</span>,</span><br><span class="line">    <span class="symbol">dependent:</span> <span class="symbol">:destroy</span></span><br><span class="line">    <span class="comment">#active_relationships是自己取的名字，不是默认的模型名字，</span></span><br><span class="line">    <span class="comment">#class_name是模型的类名，需要指定（如果active_relationships取名为relationships则不需要）</span></span><br><span class="line">    <span class="comment">#Rails 会寻找名为&lt;class&gt;_id 的外键，其中&lt;class&gt; 是模型类名的小写形式</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Relationship</span> &lt; ApplicationRecord</span></span><br><span class="line">    belongs_to <span class="symbol">:follower</span>, <span class="symbol">class_name:</span> <span class="string">"User"</span></span><br><span class="line">    <span class="comment">#follower和followed都是自己取的名字，都属于User的类</span></span><br><span class="line">    belongs_to <span class="symbol">:followed</span>, <span class="symbol">class_name:</span> <span class="string">"User"</span></span><br><span class="line">    validates <span class="symbol">:follower_id</span>, <span class="symbol">presence:</span> <span class="literal">true</span></span><br><span class="line">    validates <span class="symbol">:followed_id</span>, <span class="symbol">presence:</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><p>以上代码建立的方法：</p><table><thead><tr><th>方法</th><th>作用</th></tr></thead><tbody><tr><td>active_relationship.follower</td><td>获取关注我的用户</td></tr><tr><td>active_relationship.followed</td><td>获取我关注的用户</td></tr><tr><td>user.active_relationships.create(followed_id: other_user.id)</td><td>创建user 发起的<strong>主动</strong>关系</td></tr><tr><td>user.active_relationships.create!(followed_id: other_user.id)</td><td>创建user 发起的主动关系（失败时抛出异常）</td></tr><tr><td>user.active_relationships.build(followed_id: other_user.id)</td><td>构建user 发起的主动关系对象</td></tr></tbody></table><p>如何获取我关注（following)和关注我(followers)的账户</p><p>默认情况下，在has_many :through 关联中，Rails 会寻找关联名单数形式对应的外键。</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">has_many <span class="symbol">:followeds</span>, <span class="symbol">through:</span> <span class="symbol">:active_relationships</span></span><br></pre></td></tr></table></figure><p>如果不是默认情况，Rails 允许定制的关联方法：使用source 参数指定following 数组由followed_id组成</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">has_many <span class="symbol">:following</span>, <span class="symbol">through:</span> <span class="symbol">:active_relationships</span>, <span class="symbol">source:</span> <span class="symbol">:followed</span></span><br></pre></td></tr></table></figure><p>我们可以充分利用 Active Record 和数组的功能。例如，可以使用include? 方法检查我关注的用户中有没有某个用户，或者通过关联查找一个用户：</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">user.following.<span class="keyword">include</span>?(other_user)</span><br><span class="line">user.following.find(other_user)</span><br><span class="line">user.following.count</span><br><span class="line"><span class="comment">#很多情况下都可以把following 当成数组来用.</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;建立模型：&lt;/p&gt;
-&lt;p&gt;User&lt;/p&gt;
-&lt;p&gt;Relationship&lt;/p&gt;
-&lt;p&gt;​    &lt;img src=&quot;C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\155479348287
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>SQLAlchemy</title>
     <link href="https://zackertypical.github.io/2019/04/08/python%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C/"/>
     <id>https://zackertypical.github.io/2019/04/08/python数据库操作/</id>
