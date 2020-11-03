@@ -6,9 +6,9 @@
   xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>Post section on Zacker&#39;s 博客</title>
+    <title>博客列表 on Zacker&#39;s 博客</title>
     <link>https://zackertypical.github.io/zh/posts/</link>
-    <description>Recent content in Post section on Zacker&#39;s 博客</description>
+    <description>Recent content in 博客列表 on Zacker&#39;s 博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <managingEditor>zzossig@gmail.com (zzossig)</managingEditor>
