@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://zackertypical.github.io/zh/posts/</loc>
+    <lastmod>2019-03-26T08:47:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zackertypical.github.io/zh/</loc>
+    <lastmod>2019-03-26T08:47:11+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://zackertypical.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://zackertypical.github.io/zh/"
+                />
+  </url>
+  
+  <url>
     <loc>https://zackertypical.github.io/zh/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -41,20 +61,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://zackertypical.github.io/zh/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://zackertypical.github.io/zh/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://zackertypical.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://zackertypical.github.io/zh/"
                 />
   </url>
   
